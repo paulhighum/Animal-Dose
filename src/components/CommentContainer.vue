@@ -26,6 +26,4 @@ export default {
   padding: 9px;
 }
 
-
-
 </style>
