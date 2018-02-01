@@ -2,18 +2,21 @@
   <div id="app">
     <AnimalCard :fact="currentFact"/>
     <ButtonContainer />
+    <CommentContainer />
   </div>
 </template>
 
 <script>
 import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
+import CommentContainer from "./components/CommentContainer"
 
 export default {
   name: 'App',
   components: {
     AnimalCard,
-    ButtonContainer
+    ButtonContainer,
+    CommentContainer
   },
   data() {
     return {
@@ -36,16 +39,17 @@ export default {
         })
         .then(res => {
           this.chooseRandomFact()
-          console.log(this.currentFact)
+          console.log(this.lastTenAnimals)
           return res
         })
     },
     chooseRandomFact() {
       let tempNum = Math.floor(Math.random() * this.factData.length)
-      if(this.lastTenAnimals.includes(tempNum)){
+      let animalId = this.factData[tempNum].animal_id
+      if(this.lastTenAnimals.includes(animalId)){
         chooseRandomFact()
       } else {
-        this.lastTenAnimals.push(tempNum)
+        this.lastTenAnimals.push(animalId)
         this.currentFact = this.factData[tempNum]
         return this.lastTenAnimals
       }

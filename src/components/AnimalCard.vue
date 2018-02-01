@@ -6,6 +6,7 @@
     <p>{{fact.fact}}</p>
   </div>
 </template>
+
 <script>
 export default {
   name: "AnimalCard",
@@ -14,6 +15,7 @@ export default {
   }),
   props: ["fact"]
 }</script>
+
 <style scoped>
   #AnimalCard {
     max-width: 550px;
