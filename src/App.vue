@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AnimalCard :fact="currentFact"/>
-    <ButtonContainer />
+    <ButtonContainer :getFacts="getFacts"/>
     <CommentContainer />
   </div>
 </template>
@@ -39,7 +39,6 @@ export default {
         })
         .then(res => {
           this.chooseRandomFact()
-          console.log(this.lastTenAnimals)
           return res
         })
     },
@@ -47,11 +46,18 @@ export default {
       let tempNum = Math.floor(Math.random() * this.factData.length)
       let animalId = this.factData[tempNum].animal_id
       if(this.lastTenAnimals.includes(animalId)){
-        chooseRandomFact()
+        this.chooseRandomFact()
       } else {
+        this.setLengthOfLastTenAnimals()
         this.lastTenAnimals.push(animalId)
         this.currentFact = this.factData[tempNum]
         return this.lastTenAnimals
+      }
+    },
+    setLengthOfLastTenAnimals() {
+      if(this.lastTenAnimals.length > 10){
+        this.lastTenAnimals.shift()
+        this.setLengthOfLastTenAnimals()
       }
     }
   }

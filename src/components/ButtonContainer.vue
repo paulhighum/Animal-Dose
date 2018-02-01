@@ -1,20 +1,19 @@
 <template>
   <div id="ButtonContainer">
     <button type="button" name="addComment">Add a Comment</button>
-    <button v-on:click.prevent="newFact" type="button" id="new-fact" name="newFact">New Fact</button>
+    <button v-on:click.prevent="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
     <button type="button" name="button">Donate Now</button>
   </div>
 </template>
 <script>
 export default {
   name: "ButtonContainer",
+  props: ["getFacts"],
   data: () => ({
 
   }),
   methods: {
-    newFact() {
-      location.reload()
-    }
+
   }
 }
 </script>
