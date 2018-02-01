@@ -20,7 +20,9 @@ export default {
   },
   data() {
     return {
-      apiURL: "https://animal-facts.herokuapp.com/facts",
+      factsURL: "https://animal-facts.herokuapp.com/facts",
+      commentURL: "https://animal-facts.herokuapp.com/comments",
+      comments: [],
       factData: [],
       currentFact: {},
       lastTenAnimals: [],
@@ -28,18 +30,24 @@ export default {
   },
   mounted() {
     this.getFacts()
+    this.getComments()
   },
   methods: {
     getFacts() {
-      fetch(this.apiURL)
+      fetch(this.factsURL)
         .then(res => res.json())
         .then(res => {
           this.factData = res.facts
-          return res
-        })
-        .then(res => {
           this.chooseRandomFact()
           return res
+        })
+    },
+    getComments() {
+      fetch(this.commentURL)
+        .then(res => res.json())
+        .then(json => {
+          console.log(json)
+          return json
         })
     },
     chooseRandomFact() {
@@ -50,6 +58,7 @@ export default {
       } else {
         this.setLengthOfLastTenAnimals()
         this.lastTenAnimals.push(animalId)
+        console.log(this.lastTenAnimals)
         this.currentFact = this.factData[tempNum]
         return this.lastTenAnimals
       }
