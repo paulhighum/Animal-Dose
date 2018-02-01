@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <AnimalCard :factData="factData"/>
+    <AnimalCard :fact="currentFact"/>
+    <ButtonContainer />
   </div>
 </template>
 
 <script>
 import AnimalCard from "./components/AnimalCard"
+import ButtonContainer from "./components/ButtonContainer"
 
 export default {
   name: 'App',
   components: {
-    AnimalCard
+    AnimalCard,
+    ButtonContainer
   },
   data() {
     return {
@@ -34,7 +36,7 @@ export default {
         })
         .then(res => {
           this.chooseRandomFact()
-          console.log(this.lastTenAnimals)
+          console.log(this.currentFact)
           return res
         })
     },
@@ -45,6 +47,7 @@ export default {
       } else {
         this.lastTenAnimals.push(tempNum)
         this.currentFact = this.factData[tempNum]
+        return this.lastTenAnimals
       }
     }
   }
@@ -54,10 +57,12 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 1.6;
 }
 </style>

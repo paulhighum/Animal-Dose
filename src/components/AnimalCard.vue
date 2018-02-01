@@ -1,8 +1,9 @@
 <template>
   <div id="AnimalCard">
-    <li v-for="fact in factData">
-        <h4>{{fact.name}}</h4>
-      </li>
+    <h2>{{fact.name}}</h2>
+    <p id="scientific-name">{{fact.scientific_name}}</p>
+    <img :src="fact.image" alt="picture of this animal" />
+    <p>{{fact.fact}}</p>
   </div>
 </template>
 <script>
@@ -11,7 +12,20 @@ export default {
   data: () => ({
 
   }),
-  props: ["factData"]
+  props: ["fact"]
 }</script>
 <style scoped>
+  #AnimalCard {
+    max-width: 550px;
+  }
+
+  #scientific-name {
+    font-style: italic;
+  }
+
+  img {
+    max-width: 500px;
+    max-height: 400px;
+
+  }
 </style>
