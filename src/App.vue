@@ -3,6 +3,7 @@
     <AnimalCard :fact="currentFact"/>
     <ButtonContainer :getFacts="getFacts"/>
     <CommentContainer />
+    <NewCommentForm />
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
 import CommentContainer from "./components/CommentContainer"
+import NewCommentForm from "./components/NewCommentForm"
 
 export default {
   name: 'App',
   components: {
     AnimalCard,
     ButtonContainer,
-    CommentContainer
+    CommentContainer,
+    NewCommentForm
   },
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
   <div id="ButtonContainer">
-    <button type="button" name="addComment">Add a Comment</button>
+    <button v-on:click.prevent="showCommentForm"type="button" name="addComment">Add a Comment</button>
     <button v-on:click.prevent="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
     <button type="button" name="button">Donate Now</button>
   </div>
@@ -13,7 +13,9 @@ export default {
 
   }),
   methods: {
-
+    showCommentForm() {
+      console.log("comment form")
+    }
   }
 }
 </script>
