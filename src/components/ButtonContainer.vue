@@ -1,20 +1,30 @@
 <template>
   <div id="ButtonContainer">
-    <button v-on:click.prevent="showCommentForm"type="button" name="addComment">Add a Comment</button>
-    <button v-on:click.prevent="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
-    <button type="button" name="button">Donate Now</button>
+    <button v-on:click="commentToggle = !commentToggle" type="button" name="addComment">{{ commentToggle ? "Show Comments" : "Add a Comment" }}</button>
+    <button v-on:click="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
+    <button v-on:click="donateToggle = !donateToggle" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
+    <div class="dynamic-display-options">
+      <CommentContainer :commentToggle="commentToggle" :comments="comments"/>
+      <NewCommentForm :commentToggle="commentToggle" :cURL="commentURL" :animalFact="fact" :getComments="getComments"/>
+    </div>
   </div>
 </template>
+
 <script>
+import CommentContainer from "./CommentContainer"
+import NewCommentForm from "./NewCommentForm"
+
 export default {
   name: "ButtonContainer",
-  props: ["getFacts"],
-  data: () => ({
-
-  }),
-  methods: {
-    showCommentForm() {
-      console.log("comment form")
+  props: ["getFacts", "commentURL", "fact", "getComments", "comments"],
+  components: {
+    CommentContainer,
+    NewCommentForm,
+  },
+  data() {
+    return {
+      commentToggle: false,
+      donateToggle: false,
     }
   }
 }

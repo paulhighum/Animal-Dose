@@ -1,39 +1,33 @@
 <template>
   <div id="app">
     <AnimalCard :fact="currentFact"/>
-    <ButtonContainer :getFacts="getFacts"/>
-    <CommentContainer />
-    <NewCommentForm />
+    <ButtonContainer :getFacts="getFacts" :commentURL="commentURL" :fact="currentFact" :getComments="getComments"/>
   </div>
 </template>
 
 <script>
 import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
-import CommentContainer from "./components/CommentContainer"
-import NewCommentForm from "./components/NewCommentForm"
 
 export default {
   name: 'App',
   components: {
     AnimalCard,
     ButtonContainer,
-    CommentContainer,
-    NewCommentForm
   },
   data() {
     return {
-      factsURL: "https://animal-facts.herokuapp.com/facts",
+      factsURL: "https://animal-facts.herokuapp.com",
       commentURL: "https://animal-facts.herokuapp.com/comments",
       comments: [],
       factData: [],
       currentFact: {},
+      currentComments: [],
       lastTenAnimals: [],
     }
   },
   mounted() {
     this.getFacts()
-    this.getComments()
   },
   methods: {
     getFacts() {
@@ -42,6 +36,7 @@ export default {
         .then(res => {
           this.factData = res.facts
           this.chooseRandomFact()
+          this.getComments()
           return res
         })
     },
@@ -49,7 +44,8 @@ export default {
       fetch(this.commentURL)
         .then(res => res.json())
         .then(json => {
-          console.log(json)
+          this.comments = json.comments
+          console.log(this.comments)
           return json
         })
     },
@@ -57,12 +53,14 @@ export default {
       let tempNum = Math.floor(Math.random() * this.factData.length)
       let animalId = this.factData[tempNum].animal_id
       if(this.lastTenAnimals.includes(animalId)){
+        console.log("repeat", animalId)
         this.chooseRandomFact()
       } else {
         this.setLengthOfLastTenAnimals()
         this.lastTenAnimals.push(animalId)
         console.log(this.lastTenAnimals)
         this.currentFact = this.factData[tempNum]
+        console.log(this.currentFact)
         return this.lastTenAnimals
       }
     },
@@ -71,6 +69,9 @@ export default {
         this.lastTenAnimals.shift()
         this.setLengthOfLastTenAnimals()
       }
+    },
+    getCommentsForCurrentAnimal() {
+
     }
   }
 }
@@ -80,7 +81,7 @@ export default {
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
