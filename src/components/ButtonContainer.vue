@@ -4,7 +4,7 @@
     <button v-on:click="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
     <button v-on:click="donateToggle = !donateToggle" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
-      <CommentContainer :commentToggle="commentToggle" :comments="comments"/>
+      <CommentContainer :commentToggle="commentToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :cURL="commentURL" :animalFact="fact" :getComments="getComments"/>
     </div>
   </div>
@@ -16,7 +16,7 @@ import NewCommentForm from "./NewCommentForm"
 
 export default {
   name: "ButtonContainer",
-  props: ["getFacts", "commentURL", "fact", "getComments", "comments"],
+  props: ["getFacts", "commentURL", "fact", "currentComments", "getComments"],
   components: {
     CommentContainer,
     NewCommentForm,

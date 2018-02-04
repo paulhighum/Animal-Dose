@@ -35,7 +35,7 @@ export default {
       })
         .then(res => res.json())
         .then(json => {
-          this.getComments
+          this.getComments()
           console.log(json)
         })
       // console.log(this.commentObject, this.animalFact)

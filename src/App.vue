@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AnimalCard :fact="currentFact"/>
-    <ButtonContainer :getFacts="getFacts" :commentURL="commentURL" :fact="currentFact" :getComments="getComments"/>
+    <ButtonContainer :getFacts="getFacts" :commentURL="commentURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
         .then(res => res.json())
         .then(json => {
           this.comments = json.comments
-          console.log(this.comments)
+          this.getCommentsForCurrentAnimal()
           return json
         })
     },
@@ -58,9 +58,7 @@ export default {
       } else {
         this.setLengthOfLastTenAnimals()
         this.lastTenAnimals.push(animalId)
-        console.log(this.lastTenAnimals)
         this.currentFact = this.factData[tempNum]
-        console.log(this.currentFact)
         return this.lastTenAnimals
       }
     },
@@ -71,7 +69,7 @@ export default {
       }
     },
     getCommentsForCurrentAnimal() {
-
+      return this.currentComments = this.comments.filter(comment => comment.animal_id === this.currentFact.animal_id)
     }
   }
 }
