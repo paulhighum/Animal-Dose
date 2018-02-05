@@ -37,6 +37,10 @@ p {
   margin-left: 20px;
 }
 
+input {
+  float: right;
+}
+
 button {
   width: 130px;
   height: 50px;
