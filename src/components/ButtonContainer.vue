@@ -33,20 +33,24 @@ export default {
 
 #ButtonContainer {
   margin: 10px 0 0 0;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 button {
-  width: 125px;
-  height: 40px;
-  background-color: rgb(230, 230, 230);
+  width: 150px;
+  height: 50px;
+  background-color: rgb(128, 188, 210);
+  border-color: rgb(128, 188, 210);
   border-radius: 5px;
   margin: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  outline: none !important;
+  font-size: .85rem;
 }
 
 button:hover {
-  background-color: rgba(246, 193, 76, 0.6);
+  background-color: rgb(106, 203, 238);
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #new-fact {

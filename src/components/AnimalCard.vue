@@ -17,6 +17,8 @@ export default {
 }</script>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
   #AnimalCard {
     max-width: 550px;
   }
@@ -28,6 +30,15 @@ export default {
   img {
     max-width: 500px;
     max-height: 400px;
+  }
 
+  h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 1rem;
   }
 </style>

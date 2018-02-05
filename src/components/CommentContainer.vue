@@ -6,8 +6,8 @@
         <p>{{comment.comment}}</p>
       </li>
     </ul>
-    <button type="button" name="button">Delete Comment</button>
-    <button type="button" name="button">Update Comment</button>
+    <button type="button" id="delete-comment" name="button">Delete Comment</button>
+    <button type="button" id="update-comment" name="button">Update Comment</button>
   </section>
 </template>
 
@@ -38,17 +38,34 @@ p {
 }
 
 button {
-  width: 125px;
-  height: 40px;
-  background-color: rgb(230, 230, 230);
+  width: 130px;
+  height: 50px;
   border-radius: 5px;
   margin: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: .85rem;
 }
 
 button:hover {
-  background-color: rgba(246, 193, 76, 0.6);
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#delete-comment {
+  background-color: rgb(231, 84, 69);
+  border-color: rgb(231, 84, 69);
+}
+
+#delete-comment:hover {
+  background-color: rgb(252, 42, 42);
+}
+
+#update-comment {
+  background-color: rgb(233, 207, 114);
+  border-color: rgb(233, 207, 114);
+}
+
+#update-comment:hover {
+  background-color: rgb(242, 229, 59);
 }
 
 </style>

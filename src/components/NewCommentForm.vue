@@ -1,10 +1,10 @@
 <template>
   <div id="NewCommentForm" v-if="commentToggle">
     <form id="comment-input" v-on:submit.prevent="postComment">
-        <label>Commenter's Name: </label>
-        <input type="text" id="name" />
+        <label id="commenters-name">Commenter's Name: </label>
+        <input v-model="commentObject.name" type="text" id="name" />
         <label>Comment: </label>
-        <textarea id="new-comment"  rows="8" cols="100"></textarea>
+        <textarea v-model="commentObject.comment" id="new-comment"  rows="8" cols="100"></textarea>
         <input id="submit" type="submit" value="Submit" />
       </form>
   </div>
@@ -25,26 +25,30 @@ export default {
   },
   methods: {
     postComment() {
-      this.commentObject.name = event.target.name.value
-      this.commentObject.comment = event.target["new-comment"].value
       this.commentObject.animal_id = this.animalFact.animal_id
-      fetch(this.cURL, {
-        method: "POST",
-        headers: new Headers({"Content-Type": "application/json"}),
-        body: JSON.stringify(this.commentObject)
-      })
-        .then(res => res.json())
-        .then(json => {
-          this.getComments()
-          console.log(json)
+      if(event.target.name.value.length > 0 && event.target["new-comment"].value.length > 0){
+        fetch(this.cURL, {
+          method: "POST",
+          headers: new Headers({"Content-Type": "application/json"}),
+          body: JSON.stringify(this.commentObject)
         })
-      // console.log(this.commentObject, this.animalFact)
+          .then(res => res.json())
+          .then(json => {
+            this.getComments()
+          })
+      } else {
+        console.log("please finish filling out the comment card")
+      }
+      this.commentObject.name = ""
+      this.commentObject.comment = ""
+      this.commentObject.animal_id = undefined
     },
   }
 }
 </script>
 
 <style scoped>
+
 #NewCommentForm {
   margin: 20px 0 30px 0;
   width: 550px;
@@ -53,14 +57,49 @@ export default {
 form {
   display: flex;
   flex-flow: column;
+  align-items: center;
 }
 
 label {
   margin: 10px 0;
 }
 
+input {
+  border: solid black 1px;
+  border-radius: 5px;
+  outline: none !important;
+  width: 550px;
+  font-size: 1rem;
+  /* text-align: center; */
+}
+
+textarea {
+  border-radius: 5px;
+  outline: none !important;
+  width: 550px;
+  font-size: 1rem !important;
+}
+
+#commenters-name{
+  float: left;
+}
+
 #submit {
   margin: 13px 0 0 0;
+  background-color: rgb(109, 194, 118);
+  border-color: rgb(109, 194, 118);
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  outline: none !important;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+#submit:hover {
+  background-color: rgb(80, 215, 93);
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 </style>
