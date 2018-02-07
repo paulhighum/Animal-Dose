@@ -1,20 +1,28 @@
 <template>
-  <section id="CommentContainer" v-if="!commentToggle">
+  <section id="CommentContainer" v-if="!commentToggle && !donateToggle && !deleteToggle && !updateToggle">
     <ul>
       <li v-for="comment in currentComments">
         <h4>{{comment.name}}:</h4>
         <p>{{comment.comment}}</p>
       </li>
     </ul>
-    <button type="button" id="delete-comment" name="button">Delete Comment</button>
-    <button type="button" id="update-comment" name="button">Update Comment</button>
   </section>
 </template>
 
 <script>
+
 export default {
   name: "CommentContainer",
-  props: ["currentComments", "commentToggle"],
+  props: ["currentComments", "commentToggle", "donateToggle", "deleteToggle", "updateToggle"],
+  methods: {
+    deleteComment() {
+      if(!this.deleteToggle){
+        console.log(this.deleteToggle)
+        this.deleteToggle = true
+      }
+
+    }
+  }
 }
 </script>
 
@@ -52,24 +60,6 @@ button {
 button:hover {
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-#delete-comment {
-  background-color: rgb(231, 84, 69);
-  border-color: rgb(231, 84, 69);
-}
-
-#delete-comment:hover {
-  background-color: rgb(252, 42, 42);
-}
-
-#update-comment {
-  background-color: rgb(233, 207, 114);
-  border-color: rgb(233, 207, 114);
-}
-
-#update-comment:hover {
-  background-color: rgb(242, 229, 59);
 }
 
 </style>

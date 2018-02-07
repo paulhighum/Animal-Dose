@@ -1,18 +1,24 @@
 <template>
   <div id="ButtonContainer">
-    <button v-on:click="commentToggle = !commentToggle" type="button" name="addComment">{{ commentToggle ? "Show Comments" : "Add a Comment" }}</button>
+    <button v-on:click="showAddCommentComponent" type="button" name="addComment">{{ showCommentsToggle ? "Add a Comment" : "Show Comments" }}</button>
     <button v-on:click="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
-    <button v-on:click="donateToggle = !donateToggle" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
+    <button v-on:click="showDonationComponent" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
-      <CommentContainer :commentToggle="commentToggle" :currentComments="currentComments"/>
+      <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :cURL="commentURL" :animalFact="fact" :getComments="getComments"/>
+      <Donation :donateToggle="donateToggle"/>
+      <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments"/>
     </div>
+    <button v-if="showCommentsToggle" v-on:click="deleteToggle = !deleteToggle" type="button" id="delete-comment" name="button">Delete Comment</button>
+    <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
   </div>
 </template>
 
 <script>
 import CommentContainer from "./CommentContainer"
 import NewCommentForm from "./NewCommentForm"
+import Donation from "./Donation"
+import DeleteComment from "./DeleteComment"
 
 export default {
   name: "ButtonContainer",
@@ -20,11 +26,47 @@ export default {
   components: {
     CommentContainer,
     NewCommentForm,
+    Donation,
+    DeleteComment,
   },
   data() {
     return {
       commentToggle: false,
       donateToggle: false,
+      deleteToggle: false,
+      updateToggle: false,
+      showCommentsToggle: true,
+    }
+  },
+  methods: {
+    showCommentsOnButton() {
+      if(!this.commentToggle && !this.donateToggle && !this.deleteToggle && !this.updateToggle){
+        this.showCommentsToggle = true
+      } else {
+        this.showCommentsToggle = false
+      }
+    },
+    showAddCommentComponent(){
+      if(!this.commentToggle && !this.donateToggle && !this.deleteToggle && !this.updateToggle){
+        this.commentToggle = !this.commentToggle
+        this.showCommentsOnButton()
+      } else {
+        this.commentToggle = false,
+        this.donateToggle = false,
+        this.deleteToggle = false,
+        this.updateToggle = false,
+        this.showCommentsOnButton()
+      }
+    },
+    showDonationComponent(){
+      if(!this.commentToggle){
+        this.donateToggle = !this.donateToggle
+        this.showCommentsOnButton()
+      } else if (this.commentToggle){
+        this.commentToggle = !this.commentToggle
+        this.donateToggle = !this.donateToggle
+        this.showCommentsOnButton()
+      }
     }
   }
 }
@@ -51,6 +93,24 @@ button:hover {
   background-color: rgb(106, 203, 238);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#delete-comment {
+  background-color: rgb(231, 84, 69);
+  border-color: rgb(231, 84, 69);
+}
+
+#delete-comment:hover {
+  background-color: rgb(252, 42, 42);
+}
+
+#update-comment {
+  background-color: rgb(233, 207, 114);
+  border-color: rgb(233, 207, 114);
+}
+
+#update-comment:hover {
+  background-color: rgb(242, 229, 59);
 }
 
 #new-fact {
