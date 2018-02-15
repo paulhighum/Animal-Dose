@@ -9,7 +9,7 @@
       <Donation :donateToggle="donateToggle"/>
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments"/>
     </div>
-    <button v-if="showCommentsToggle" v-on:click="deleteToggle = !deleteToggle" type="button" id="delete-comment" name="button">Delete Comment</button>
+    <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
     <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
       }
     },
     showAddCommentComponent(){
-      if(!this.commentToggle && !this.donateToggle && !this.deleteToggle && !this.updateToggle){
+      if(this.showCommentsToggle){
         this.commentToggle = !this.commentToggle
         this.showCommentsOnButton()
       } else {
@@ -67,6 +67,10 @@ export default {
         this.donateToggle = !this.donateToggle
         this.showCommentsOnButton()
       }
+    },
+    showDeleteCommentComponent(){
+      this.deleteToggle = !this.deleteToggle
+      this.showCommentsOnButton()
     }
   }
 }
