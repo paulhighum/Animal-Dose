@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AnimalCard :fact="currentFact"/>
-    <ButtonContainer :getFacts="getFacts" :commentURL="commentURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
+    <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
   </div>
 </template>
 
@@ -17,8 +17,7 @@ export default {
   },
   data() {
     return {
-      factsURL: "https://animal-facts.herokuapp.com",
-      commentURL: "https://animal-facts.herokuapp.com/comments",
+      apiURL: "https://animal-facts.herokuapp.com/",
       comments: [],
       factData: [],
       currentFact: {},
@@ -31,7 +30,7 @@ export default {
   },
   methods: {
     getFacts() {
-      fetch(this.factsURL)
+      fetch(this.apiURL)
         .then(res => res.json())
         .then(res => {
           this.factData = res.facts
@@ -41,7 +40,7 @@ export default {
         })
     },
     getComments() {
-      fetch(this.commentURL)
+      fetch(this.apiURL + "comments")
         .then(res => res.json())
         .then(json => {
           this.comments = json.comments

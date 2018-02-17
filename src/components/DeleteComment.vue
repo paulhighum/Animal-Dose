@@ -16,7 +16,21 @@
 <script>
 export default {
   name: "DeleteComment",
-  props: ["currentComments", "deleteToggle"]
+  props: ["currentComments", "deleteToggle", "apiURL"],
+  methods: {
+    deleteThisComment() {
+      fetch(this.cURL, {
+        method: "DELETE",
+        headers: new Headers({"Content-Type": "application/json"}),
+        body: JSON.stringify(this.commentObject)
+      })
+        .then(res => res.json())
+        .then(json => {
+          this.getComments()
+        })
+
+    }
+  }
 }
 </script>
 <style scoped>
