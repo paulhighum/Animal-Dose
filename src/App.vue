@@ -45,6 +45,7 @@ export default {
         .then(json => {
           this.comments = json.comments
           this.getCommentsForCurrentAnimal()
+          console.log(this.currentComments)
           return json
         })
     },

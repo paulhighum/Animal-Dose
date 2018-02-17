@@ -4,6 +4,7 @@
       <li v-for="comment in currentComments">
         <h4>{{comment.name}}:</h4>
         <p>{{comment.comment}}</p>
+        <small>{{comment.id}}</small>
       </li>
     </ul>
   </section>
@@ -43,6 +44,10 @@ ul {
 
 p {
   margin-left: 20px;
+}
+
+small {
+  display: none;
 }
 
 input {
