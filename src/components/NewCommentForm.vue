@@ -13,7 +13,7 @@
 
 export default {
   name: "NewCommentForm",
-  props: ["commentToggle", "cURL", "animalFact", "getComments"],
+  props: ["commentToggle", "apiURL", "animalFact", "getComments"],
   data() {
     return {
       commentObject: {
@@ -27,7 +27,7 @@ export default {
     postComment() {
       this.commentObject.animal_id = this.animalFact.animal_id
       if(event.target.name.value.length > 0 && event.target["new-comment"].value.length > 0){
-        fetch(this.cURL, {
+        fetch(this.apiURL + "comments", {
           method: "POST",
           headers: new Headers({"Content-Type": "application/json"}),
           body: JSON.stringify(this.commentObject)

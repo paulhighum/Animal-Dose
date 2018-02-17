@@ -17,12 +17,20 @@
 export default {
   name: "DeleteComment",
   props: ["currentComments", "deleteToggle", "apiURL"],
+  data() {
+    return {
+      id: undefined
+    }
+  },
   methods: {
+    getID(){
+
+    },
     deleteThisComment() {
-      fetch(this.cURL, {
+      fetch(this.apiURL + "comments" + this.id, {
         method: "DELETE",
         headers: new Headers({"Content-Type": "application/json"}),
-        body: JSON.stringify(this.commentObject)
+        body: JSON.stringify(this.delete)
       })
         .then(res => res.json())
         .then(json => {
