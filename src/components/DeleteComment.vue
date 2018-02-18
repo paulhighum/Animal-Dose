@@ -1,11 +1,12 @@
 <template>
   <div id="DeleteComment" v-if="deleteToggle" >
-    <form class="" action="index.html" method="post">
+    <form class="delete-form" v-on:submit.prevent="getID">
       <ul>
         <li v-for="comment in currentComments">
           <h4>{{comment.name}}:</h4>
           <p>{{comment.comment}}</p>
-          <input type="checkbox" name="" value="">
+          <small>{{comment.id}}</small>
+          <input type="checkbox" name="check" v-on:change="getID">
         </li>
       </ul>
       <input id="delete-checked" type="submit" value="Delete" />
@@ -24,7 +25,7 @@ export default {
   },
   methods: {
     getID(){
-
+      console.log(event.target.parentNode)
     },
     deleteThisComment() {
       fetch(this.apiURL + "comments" + this.id, {
@@ -42,6 +43,10 @@ export default {
 }
 </script>
 <style scoped>
+
+small {
+  display: none;
+}
 
 button {
   width: 150px;
