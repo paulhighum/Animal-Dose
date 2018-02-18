@@ -1,12 +1,12 @@
 <template>
   <div id="DeleteComment" v-if="deleteToggle" >
-    <form class="delete-form" v-on:submit.prevent="getID">
+    <form class="delete-form" v-on:submit.prevent="getIDs">
       <ul>
         <li v-for="comment in currentComments">
           <h4>{{comment.name}}:</h4>
           <p>{{comment.comment}}</p>
           <small>{{comment.id}}</small>
-          <input type="checkbox" name="check" v-on:change="getID">
+          <input type="checkbox" name="check">
         </li>
       </ul>
       <input id="delete-checked" type="submit" value="Delete" />
@@ -20,18 +20,22 @@ export default {
   props: ["currentComments", "deleteToggle", "apiURL"],
   data() {
     return {
-      comment_id: undefined
+      comment_ids: undefined
     }
   },
   methods: {
-    getID(){
-      if(event.target.checked){
-        this.comment_id = Number(event.target.parentNode.childNodes[4].innerText)
-        console.log(this.comment_id)
+    getIDs(){
+      this.comment_ids = []
+      let commentListObject = event.target.childNodes[0].childNodes
+      for(let i = 0; i < commentListObject.length; i++){
+        if(commentListObject[i].childNodes[6].checked){
+          this.comment_ids.push(commentListObject[i].childNodes[4].innerText)
+        }
       }
+      console.log(this.comment_ids)
     },
     deleteThisComment() {
-      fetch(this.apiURL + "comments" + this.id, {
+      fetch(this.apiURL + "comments", {
         method: "DELETE",
         headers: new Headers({"Content-Type": "application/json"}),
         body: JSON.stringify(this.delete)
