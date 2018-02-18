@@ -1,6 +1,6 @@
 <template>
   <div id="DeleteComment" v-if="deleteToggle" >
-    <form class="delete-form" v-on:submit.prevent="getIDs">
+    <form class="delete-form" v-on:submit.prevent="deleteThisComment">
       <ul>
         <li v-for="comment in currentComments">
           <h4>{{comment.name}}:</h4>
@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "DeleteComment",
-  props: ["currentComments", "deleteToggle", "apiURL"],
+  props: ["currentComments", "deleteToggle", "apiURL", "showAddCommentComponent", "getComments"],
   data() {
     return {
       comment_ids: undefined
@@ -32,19 +32,19 @@ export default {
           this.comment_ids.push(commentListObject[i].childNodes[4].innerText)
         }
       }
-      console.log(this.comment_ids)
     },
     deleteThisComment() {
-      fetch(this.apiURL + "comments", {
-        method: "DELETE",
-        headers: new Headers({"Content-Type": "application/json"}),
-        body: JSON.stringify(this.delete)
-      })
-        .then(res => res.json())
-        .then(json => {
-          this.getComments()
+      this.getIDs()
+      this.comment_ids.forEach(id => {
+        console.log(id)
+        fetch(this.apiURL + "comments/" + id, {
+          method: "DELETE",
         })
-
+        .then(value => {
+          this.getComments()
+          this.showAddCommentComponent()
+        })
+      })
     }
   }
 }

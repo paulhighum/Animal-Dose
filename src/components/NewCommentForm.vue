@@ -13,7 +13,7 @@
 
 export default {
   name: "NewCommentForm",
-  props: ["commentToggle", "apiURL", "animalFact", "getComments"],
+  props: ["commentToggle", "apiURL", "animalFact", "getComments", "showAddCommentComponent"],
   data() {
     return {
       commentObject: {
@@ -35,6 +35,7 @@ export default {
           .then(res => res.json())
           .then(json => {
             this.getComments()
+            this.showAddCommentComponent()
           })
       } else {
         console.log("please finish filling out the comment card")

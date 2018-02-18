@@ -5,9 +5,9 @@
     <button v-on:click="showDonationComponent" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :currentComments="currentComments"/>
-      <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments"/>
+      <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
       <Donation :donateToggle="donateToggle"/>
-      <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :apiURL="apiURL"/>
+      <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showAddCommentComponent="showAddCommentComponent"/>
     </div>
     <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
     <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
