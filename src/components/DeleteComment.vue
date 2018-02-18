@@ -20,12 +20,15 @@ export default {
   props: ["currentComments", "deleteToggle", "apiURL"],
   data() {
     return {
-      id: undefined
+      comment_id: undefined
     }
   },
   methods: {
     getID(){
-      console.log(event.target.parentNode)
+      if(event.target.checked){
+        this.comment_id = Number(event.target.parentNode.childNodes[4].innerText)
+        console.log(this.comment_id)
+      }
     },
     deleteThisComment() {
       fetch(this.apiURL + "comments" + this.id, {
