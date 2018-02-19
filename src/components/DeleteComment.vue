@@ -4,12 +4,14 @@
       <ul>
         <li v-for="comment in currentComments">
           <h4>{{comment.name}}:</h4>
-          <p>{{comment.comment}}</p>
           <small>{{comment.id}}</small>
-          <label class="container">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
+          <div class="for-delete-styling">
+            <p>{{comment.comment}}</p>
+            <label class="container">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </div>
         </li>
       </ul>
       <input id="delete-checked" type="submit" value="Delete" />
@@ -31,8 +33,8 @@ export default {
       this.comment_ids = []
       let commentListObject = event.target.childNodes[0].childNodes
       for(let i = 0; i < commentListObject.length; i++){
-        if(commentListObject[i].childNodes[6].checked){
-          this.comment_ids.push(commentListObject[i].childNodes[4].innerText)
+        if(commentListObject[i].childNodes[4].childNodes[2].childNodes[0].checked){
+          this.comment_ids.push(commentListObject[i].childNodes[2].innerText)
         }
       }
     },
@@ -64,18 +66,13 @@ ul {
   padding: 9px;
 }
 
-li {
+.for-delete-styling {
   display: flex;
   align-items: baseline;
-  margin: 10px 0 0 0;
-}
-
-h4 {
-
 }
 
 p {
-  margin: 0 5px 0 20px;
+  margin: 0 10px 0 20px;
 }
 
 small {
@@ -83,7 +80,6 @@ small {
 }
 
 .container {
-    /* float: right; */
     align-self: center;
     display: flex;
     justify-content: center;
@@ -98,7 +94,6 @@ small {
 }
 
 .container input {
-    /* position: absolute; */
     opacity: 0;
     cursor: pointer;
 }
@@ -109,31 +104,28 @@ small {
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: rgb(238, 238, 238);
     border-radius: 5px;
 }
 
 .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: rgb(204, 204, 204);
 }
 
 .container input:checked ~ .checkmark {
     background-color: rgb(252, 42, 42);
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
-/* Show the checkmark when checked */
 .container input:checked ~ .checkmark:after {
     display: block;
 }
 
-/* Style the checkmark/indicator */
 .container .checkmark:after {
     left: 9px;
     top: 5px;
