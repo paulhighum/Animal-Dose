@@ -8,6 +8,7 @@
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
       <Donation :donateToggle="donateToggle"/>
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
+      <UpdateComment />
     </div>
     <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
     <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
@@ -19,6 +20,7 @@ import CommentContainer from "./CommentContainer"
 import NewCommentForm from "./NewCommentForm"
 import Donation from "./Donation"
 import DeleteComment from "./DeleteComment"
+import UpdateComment from "./UpdateComment"
 
 export default {
   name: "ButtonContainer",
@@ -28,6 +30,7 @@ export default {
     NewCommentForm,
     Donation,
     DeleteComment,
+    UpdateComment,
   },
   data() {
     return {
