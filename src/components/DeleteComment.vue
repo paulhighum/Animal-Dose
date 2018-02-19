@@ -6,7 +6,10 @@
           <h4>{{comment.name}}:</h4>
           <p>{{comment.comment}}</p>
           <small>{{comment.id}}</small>
-          <input type="checkbox" name="check">
+          <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
         </li>
       </ul>
       <input id="delete-checked" type="submit" value="Delete" />
@@ -63,20 +66,84 @@ ul {
 
 li {
   display: flex;
-  flex-flow: row wrap;
-  align-items: center;
+  align-items: baseline;
+  margin: 10px 0 0 0;
 }
 
 h4 {
-  margin: 0 7px 0 7px;
+
 }
 
 p {
-  margin: 0 5px 0 0;
+  margin: 0 5px 0 20px;
 }
 
 small {
   display: none;
+}
+
+.container {
+    /* float: right; */
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container input {
+    /* position: absolute; */
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: rgb(252, 42, 42);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 button {
