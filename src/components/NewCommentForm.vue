@@ -5,7 +5,10 @@
         <input v-model="commentObject.name" type="text" id="name" />
         <label>Comment: </label>
         <textarea v-model="commentObject.comment" id="new-comment"  rows="8" cols="100"></textarea>
-        <input id="submit" type="submit" value="Submit" />
+        <div class="buttons">
+          <input id="submit" type="submit" value="Submit" />
+          <button v-on:click="showAddCommentComponent" type="button" name="cancel">Cancel</button>
+        </div>
       </form>
   </div>
 </template>
@@ -99,6 +102,24 @@ textarea {
 
 #submit:hover {
   background-color: rgb(80, 215, 93);
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  background-color: rgb(233, 207, 114);
+  border-color: rgb(233, 207, 114);
+  border-radius: 5px;
+  margin: 5px;
+  outline: none !important;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+button:hover {
+  background-color: rgb(242, 229, 59);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

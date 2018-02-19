@@ -28,9 +28,11 @@ export default {
 </script>
 
 <style scoped>
+
 #CommentContainer {
   margin: 30px 0;
 }
+
 ul {
   min-height: 100px;
   width: 540px;

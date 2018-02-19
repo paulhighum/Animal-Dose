@@ -10,7 +10,7 @@
         </li>
       </ul>
       <input id="delete-checked" type="submit" value="Delete" />
-      <button type="button" name="cancel">Cancel</button>
+      <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
     </form>
   </div>
 </template>
@@ -50,6 +50,31 @@ export default {
 </script>
 <style scoped>
 
+ul {
+  min-height: 100px;
+  width: 540px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid darkgrey;
+  text-align: left;
+  margin: 30px 0;
+  padding: 9px;
+}
+
+li {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+h4 {
+  margin: 0 7px 0 7px;
+}
+
+p {
+  margin: 0 5px 0 0;
+}
+
 small {
   display: none;
 }
@@ -62,7 +87,8 @@ button {
   border-radius: 5px;
   margin: 5px;
   outline: none !important;
-  font-size: .85rem;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 button:hover {
@@ -79,7 +105,8 @@ button:hover {
   border-radius: 5px;
   margin: 5px;
   outline: none !important;
-  font-size: .85rem;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 
 #delete-checked:hover {

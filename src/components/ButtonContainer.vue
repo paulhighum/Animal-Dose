@@ -105,6 +105,7 @@ button:hover {
 #delete-comment {
   background-color: rgb(231, 84, 69);
   border-color: rgb(231, 84, 69);
+  font-size: .85rem;
 }
 
 #delete-comment:hover {
@@ -114,6 +115,7 @@ button:hover {
 #update-comment {
   background-color: rgb(233, 207, 114);
   border-color: rgb(233, 207, 114);
+  font-size: .85rem;
 }
 
 #update-comment:hover {
