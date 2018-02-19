@@ -65,11 +65,15 @@ export default {
       this.showCommentsOnButton()
     },
     showDonationComponent(){
-      if(!this.commentToggle){
+      if(!this.commentToggle && !this.deleteToggle){
         this.donateToggle = !this.donateToggle
         this.showCommentsOnButton()
       } else if (this.commentToggle){
         this.commentToggle = !this.commentToggle
+        this.donateToggle = !this.donateToggle
+        this.showCommentsOnButton()
+      } else if (this.deleteToggle){
+        this.deleteToggle = !this.deleteToggle
         this.donateToggle = !this.donateToggle
         this.showCommentsOnButton()
       }
