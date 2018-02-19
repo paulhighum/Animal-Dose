@@ -17,7 +17,7 @@
 <script>
 export default {
   name: "DeleteComment",
-  props: ["currentComments", "deleteToggle", "apiURL", "showAddCommentComponent", "getComments"],
+  props: ["currentComments", "deleteToggle", "apiURL", "showCommentComponent", "getComments"],
   data() {
     return {
       comment_ids: undefined
@@ -36,13 +36,12 @@ export default {
     deleteThisComment() {
       this.getIDs()
       this.comment_ids.forEach(id => {
-        console.log(id)
         fetch(this.apiURL + "comments/" + id, {
           method: "DELETE",
         })
         .then(value => {
           this.getComments()
-          this.showAddCommentComponent()
+          this.showCommentComponent()
         })
       })
     }

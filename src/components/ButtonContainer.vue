@@ -7,7 +7,7 @@
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
       <Donation :donateToggle="donateToggle"/>
-      <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showAddCommentComponent="showAddCommentComponent"/>
+      <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
     </div>
     <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
     <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
@@ -51,12 +51,15 @@ export default {
         this.commentToggle = !this.commentToggle
         this.showCommentsOnButton()
       } else {
-        this.commentToggle = false,
-        this.donateToggle = false,
-        this.deleteToggle = false,
-        this.updateToggle = false,
-        this.showCommentsOnButton()
+        this.showCommentComponent()
       }
+    },
+    showCommentComponent(){
+      this.commentToggle = false,
+      this.donateToggle = false,
+      this.deleteToggle = false,
+      this.updateToggle = false,
+      this.showCommentsOnButton()
     },
     showDonationComponent(){
       if(!this.commentToggle){
