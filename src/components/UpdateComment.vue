@@ -14,9 +14,9 @@
           </div>
         </li>
       </ul>
-      <input id="update-checked" type="submit" value="Update" />
-      <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentToUpdate="commentToUpdate"/>
-      <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
+      <input id="update-checked" type="submit" value="Update" v-if="!modalToggle"/>
+      <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentId="commentId" :commentToUpdate="commentToUpdate" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
+      <button v-on:click="showCommentComponent" type="button" name="cancel" v-if="!modalToggle" >Cancel</button>
     </form>
   </div>
 </template>
@@ -26,7 +26,7 @@ import UpdateModal from "./UpdateModal"
 
 export default {
   name: "UpdateComment",
-  props: ["updateToggle", "currentComments", "showCommentComponent"],
+  props: ["updateToggle", "currentComments", "showCommentComponent", "getComments", "apiURL"],
   components: {
     UpdateModal,
   },
@@ -40,9 +40,10 @@ export default {
   methods: {
     toggleModalForSelectedComment() {
       this.getID()
-      this.commentToUpdate = this.currentComments.filter(comment => comment.id === Number(this.commentId))
-      console.log(this.commentToUpdate)
-      this.modalToggle = !this.modalToggle
+      if(this.commentId != undefined){
+        this.commentToUpdate = this.currentComments.filter(comment => comment.id === Number(this.commentId))
+        this.modalToggle = !this.modalToggle
+      }
     },
     getID(){
       let commentListObject = event.target.childNodes[0].childNodes
