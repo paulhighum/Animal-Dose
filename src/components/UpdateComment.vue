@@ -1,8 +1,8 @@
 <template>
   <div id="UpdateComment" v-if="updateToggle">
-    <form class="update-form" >
+    <form class="update-form" v-on:submit.prevent="toggleModalForSelectedComment">
       <ul>
-        <li v-for="comment in currentComments">
+        <li v-for="comment in currentComments" :id="comment.id">
           <h4>{{comment.name}}:</h4>
           <small>{{comment.id}}</small>
           <div class="for-update-styling">
@@ -15,16 +15,44 @@
         </li>
       </ul>
       <input id="update-checked" type="submit" value="Update" />
+      <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentToUpdate="commentToUpdate"/>
       <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
     </form>
   </div>
 </template>
 
 <script>
+import UpdateModal from "./UpdateModal"
+
 export default {
   name: "UpdateComment",
-  props: ["updateToggle", "currentComments", "showCommentComponent"]
-
+  props: ["updateToggle", "currentComments", "showCommentComponent"],
+  components: {
+    UpdateModal,
+  },
+  data() {
+    return {
+      modalToggle: false,
+      commentToUpdate: undefined,
+      commentId: undefined,
+    }
+  },
+  methods: {
+    toggleModalForSelectedComment() {
+      this.getID()
+      this.commentToUpdate = this.currentComments.filter(comment => comment.id === Number(this.commentId))
+      console.log(this.commentToUpdate)
+      this.modalToggle = !this.modalToggle
+    },
+    getID(){
+      let commentListObject = event.target.childNodes[0].childNodes
+      for(let i = 0; i < commentListObject.length; i++){
+        if(commentListObject[i].childNodes[4].childNodes[2].childNodes[0].checked){
+          this.commentId = commentListObject[i].id
+        }
+      }
+    }
+  }
 }
 </script>
 

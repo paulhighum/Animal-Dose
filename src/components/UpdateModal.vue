@@ -1,0 +1,114 @@
+<template>
+  <div id="UpdateModal" v-if="modalToggle">
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <form class="send-update" action="index.html" method="post">
+          <label id="commenters-name">Commenter's Name: </label>
+          <input type="text" id="name" :value="commentToUpdate[0].name"/>
+          <label>Comment: </label>
+          <textarea id="new-comment"  rows="8" cols="100" :value="commentToUpdate[0].comment"></textarea>
+          <div class="buttons">
+            <input id="submit-update" type="submit" value="Update" />
+            <button v-on:click="toggleModalForSelectedComment" type="button" name="cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "UpdateModal",
+  props: ["modalToggle", "toggleModalForSelectedComment", "commentToUpdate"],
+  methods: {
+    methodName() {
+
+    }
+  }
+}
+</script>
+<style scoped>
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 40% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 80%;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+label {
+  margin: 10px 0;
+}
+
+input {
+  border: solid black 1px;
+  border-radius: 5px;
+  outline: none !important;
+  width: 550px;
+  font-size: 1rem;
+}
+
+textarea {
+  border-radius: 5px;
+  outline: none !important;
+  width: 550px;
+  font-size: 1rem !important;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(233, 207, 114);
+  border-color: rgb(233, 207, 114);
+  border-radius: 5px;
+  margin: 5px;
+  outline: none !important;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+button:hover {
+  background-color: rgb(242, 229, 59);
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#submit-update {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(109, 194, 118);
+  border-color: rgb(109, 194, 118);
+  border-radius: 5px;
+  margin: 5px;
+  outline: none !important;
+  font-size: 1rem;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+#submit-update:hover {
+  background-color: rgb(80, 215, 93);
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>

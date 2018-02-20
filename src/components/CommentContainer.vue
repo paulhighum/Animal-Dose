@@ -1,10 +1,9 @@
 <template>
   <section id="CommentContainer" v-if="!commentToggle && !donateToggle && !deleteToggle && !updateToggle">
     <ul>
-      <li v-for="comment in currentComments">
+      <li v-for="comment in currentComments" :id="comment.id">
         <h4>{{comment.name}}:</h4>
         <p>{{comment.comment}}</p>
-        <small>{{comment.id}}</small>
       </li>
     </ul>
   </section>
