@@ -4,7 +4,6 @@
       <ul>
         <li v-for="comment in currentComments" :id="comment.id">
           <h4>{{comment.name}}:</h4>
-          <small>{{comment.id}}</small>
           <div class="for-delete-styling">
             <p>{{comment.comment}}</p>
             <label class="container">
@@ -33,7 +32,7 @@ export default {
       this.commentIds = []
       let commentListObject = event.target.childNodes[0].childNodes
       for(let i = 0; i < commentListObject.length; i++){
-        if(commentListObject[i].childNodes[4].childNodes[2].childNodes[0].checked){
+        if(commentListObject[i].childNodes[2].childNodes[2].childNodes[0].checked){
           this.commentIds.push(commentListObject[i].id)
         }
       }
