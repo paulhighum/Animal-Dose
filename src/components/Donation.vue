@@ -1,17 +1,21 @@
 <template>
   <div id='Donation' v-if="donateToggle">
-    <p id="thanks">Thank you for considering a donation to protect and save these amazing animals.</p>
-    <p>Please provide your payment details:</p>
-    <card class='stripe-card'
-      :class='{ complete }'
-      stripe='pk_test_XXXXXXXXXXXXXXXXXXXXXXXX'
-      :options='stripeOptions'
-      @change='complete = $event.complete'
-    />
-    <div class="buttons">
-      <button class='pay-with-stripe' @click='pay' :disabled='!complete'>Donate</button>
-      <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
-    </div>
+    <form class="stripe-form" method="post">
+      <p id="thanks">Thank you for considering a donation to protect and save these amazing animals.</p>
+      <label>Please choose a donation amount:</label>
+      <input type="number" min="0" name="amount">
+      <label>Please provide your payment details:</label>
+      <card class='stripe-card'
+        :class='{ complete }'
+        stripe='pk_test_XXXXXXXXXXXXXXXXXXXXXXXX'
+        :options='stripeOptions'
+        @change='complete = $event.complete'
+      />
+      <div class="buttons">
+        <button class='pay-with-stripe' @click='pay' :disabled='!complete'>Donate</button>
+        <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -46,19 +50,29 @@ export default {
 </script>
 
 <style scoped>
-#Donation {
+
+#thanks {
+  margin: 10px 0;
+}
+
+form {
   display: flex;
   flex-flow: column;
-  /* justify-content: center; */
   align-items: center;
 }
 
-p {
-  margin-bottom: 5px;
+form input {
+  outline: none !important;
+  border-radius: 5px;
+  border: 1px solid grey;
+  width: 80px;
+  padding: 2px;
+  font-size: .85rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
-#thanks {
-  margin-top: 5px;
+label {
+  margin: 5px;
 }
 
 .stripe-card {
@@ -66,6 +80,8 @@ p {
   border: 1px solid grey;
   border-radius: 5px;
   padding: 2px;
+  font-size: .85rem;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
 }
 
 .stripe-card.complete {
@@ -76,7 +92,7 @@ p {
   display: flex;
   flex-flow: row;
   align-items: center;
-  margin: 10px;
+  margin: 10px 10px 30px 10px;
 }
 
 button {

@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "dotenv": "^5.0.0",
+    "stripe": "^5.4.0",
     "vue": "^2.5.2",
     "vue-stripe-elements": "^0.2.3"
   },
