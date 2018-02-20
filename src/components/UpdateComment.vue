@@ -15,7 +15,7 @@
         </li>
       </ul>
       <input id="update-checked" type="submit" value="Update" v-if="!modalToggle"/>
-      <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentId="commentId" :commentToUpdate="commentToUpdate" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
+      <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentId="commentId" :commentToUpdate="commentToUpdate" :getComments="getComments" :apiURL="apiURL" :putComment="putComment" :showCommentComponent="showCommentComponent"/>
       <button v-on:click="showCommentComponent" type="button" name="cancel" v-if="!modalToggle" >Cancel</button>
     </form>
   </div>
@@ -35,6 +35,11 @@ export default {
       modalToggle: false,
       commentToUpdate: undefined,
       commentId: undefined,
+      updateObject: {
+        "name": undefined,
+        "comment": undefined,
+        "animal_id": undefined
+      }
     }
   },
   methods: {
@@ -52,6 +57,29 @@ export default {
           this.commentId = commentListObject[i].id
         }
       }
+    },
+    putComment() {
+      this.updateObject.animal_id = this.commentToUpdate[0].animal_id
+      this.updateObject.name = event.target.name.value
+      this.updateObject.comment = event.target["new-comment"].value
+      if(event.target.name.value.length > 0 && event.target["new-comment"].value.length > 0){
+        fetch(this.apiURL + "comments/" + this.commentId, {
+          method: "PUT",
+          headers: new Headers({"Content-Type": "application/json"}),
+          body: JSON.stringify(this.updateObject)
+        })
+          .then(res => res.json())
+          .then(json => {
+            this.getComments()
+            this.showCommentComponent()
+          })
+      }
+      this.modalToggle = false,
+      this.commentToUpdate = undefined,
+      this.commentId = undefined,
+      this.updateObject.name = ""
+      this.updateObject.comment = ""
+      this.updateObject.animal_id = undefined
     }
   }
 }
