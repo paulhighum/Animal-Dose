@@ -8,13 +8,13 @@
           <div class="for-update-styling">
             <p>{{comment.comment}}</p>
             <label class="container">
-              <input type="checkbox">
+              <input v-on:change="checkForChecked" type="checkbox">
               <span class="checkmark"></span>
             </label>
           </div>
         </li>
       </ul>
-      <input id="update-checked" type="submit" value="Update" v-if="!modalToggle"/>
+      <input id="update-checked" type="submit" value="Update" v-if="!modalToggle" />
       <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentId="commentId" :commentToUpdate="commentToUpdate" :getComments="getComments" :apiURL="apiURL" :putComment="putComment" :showCommentComponent="showCommentComponent"/>
       <button v-on:click="showCommentComponent" type="button" name="cancel" v-if="!modalToggle" >Cancel</button>
     </form>
@@ -43,6 +43,15 @@ export default {
     }
   },
   methods: {
+    checkForChecked(){
+      let checkedID = event.target.parentNode.parentNode.parentNode.id
+      let commentList = event.target.parentNode.parentNode.parentNode.parentNode.childNodes
+      for(let i = 0; i < commentList.length; i++){
+        if(commentList[i].id != checkedID){
+          commentList[i].childNodes[4].childNodes[2].childNodes[0].checked = false
+        }
+      }
+    },
     toggleModalForSelectedComment() {
       this.getID()
       if(this.commentId != undefined){
