@@ -62,7 +62,7 @@ export default {
       }
     },
     setLengthOfLastTenAnimals() {
-      if(this.lastTenAnimals.length > 10){
+      if(this.lastTenAnimals.length > 20){
         this.lastTenAnimals.shift()
         this.setLengthOfLastTenAnimals()
       }
