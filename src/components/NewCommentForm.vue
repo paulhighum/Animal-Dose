@@ -87,8 +87,11 @@ textarea {
   float: left;
 }
 
+.buttons {
+  margin: 10px 0;
+}
+
 #submit {
-  margin: 13px 0 0 0;
   background-color: rgb(109, 194, 118);
   border-color: rgb(109, 194, 118);
   border-radius: 5px;

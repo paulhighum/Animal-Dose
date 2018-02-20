@@ -13,9 +13,9 @@
           </div>
         </li>
       </ul>
-      <input id="update-checked" type="submit" value="Update" v-if="!modalToggle" />
+      <input class="bottom-button" id="update-checked" type="submit" value="Update" v-if="!modalToggle" />
       <UpdateModal :modalToggle="modalToggle" :toggleModalForSelectedComment="toggleModalForSelectedComment" :commentId="commentId" :commentToUpdate="commentToUpdate" :getComments="getComments" :apiURL="apiURL" :putComment="putComment" :showCommentComponent="showCommentComponent"/>
-      <button v-on:click="showCommentComponent" type="button" name="cancel" v-if="!modalToggle" >Cancel</button>
+      <button class="bottom-button" v-on:click="showCommentComponent" type="button" name="cancel" v-if="!modalToggle" >Cancel</button>
     </form>
   </div>
 </template>
@@ -177,6 +177,11 @@ small {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+.bottom-button {
+  margin-bottom: 30px;
+}
+
 
 button {
   width: 150px;

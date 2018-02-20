@@ -6,12 +6,12 @@
     <div class="dynamic-display-options">
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :updateToggle="updateToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
-      <Donation :donateToggle="donateToggle"/>
+      <Donation :donateToggle="donateToggle" :showCommentComponent="showCommentComponent"/>
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
       <UpdateComment :updateToggle="updateToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
     </div>
-    <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
-    <button v-if="showCommentsToggle" v-on:click="showUpdateCommentComponent" type="button" id="update-comment" name="button">Update Comment</button>
+    <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
+    <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showUpdateCommentComponent" type="button" id="update-comment" name="button">Update Comment</button>
   </div>
 </template>
 
@@ -98,6 +98,10 @@ export default {
 #ButtonContainer {
   margin: 10px 0 0 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+.bottom-button {
+  margin-bottom: 30px;
 }
 
 button {

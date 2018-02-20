@@ -33,15 +33,14 @@ export default {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgb(254, 254, 254);
     margin: 40% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid rgb(136, 136, 136);
     border-radius: 5px;
     width: 80%;
 }

@@ -13,8 +13,8 @@
           </div>
         </li>
       </ul>
-      <input id="delete-checked" type="submit" value="Delete" />
-      <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
+      <input class="bottom-button" id="delete-checked" type="submit" value="Delete" />
+      <button class="bottom-button" v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
     </form>
   </div>
 </template>
@@ -135,6 +135,10 @@ small {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+.bottom-button {
+  margin-bottom: 30px;
 }
 
 button {
