@@ -74,7 +74,6 @@ input {
   outline: none !important;
   width: 550px;
   font-size: 1rem;
-  /* text-align: center; */
 }
 
 textarea {
@@ -93,7 +92,7 @@ textarea {
   background-color: rgb(109, 194, 118);
   border-color: rgb(109, 194, 118);
   border-radius: 5px;
-  width: 100px;
+  width: 150px;
   height: 50px;
   outline: none !important;
   font-size: 1rem;
@@ -107,7 +106,7 @@ textarea {
 }
 
 button {
-  width: 100px;
+  width: 150px;
   height: 50px;
   background-color: rgb(233, 207, 114);
   border-color: rgb(233, 207, 114);

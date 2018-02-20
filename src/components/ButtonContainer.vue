@@ -4,14 +4,14 @@
     <button v-on:click="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
     <button v-on:click="showDonationComponent" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
-      <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :currentComments="currentComments"/>
+      <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :updateToggle="updateToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
       <Donation :donateToggle="donateToggle"/>
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
-      <UpdateComment />
+      <UpdateComment :updateToggle="updateToggle" :currentComments="currentComments" :showCommentComponent="showCommentComponent"/>
     </div>
     <button v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
-    <button v-if="showCommentsToggle" type="button" id="update-comment" name="button">Update Comment</button>
+    <button v-if="showCommentsToggle" v-on:click="showUpdateCommentComponent" type="button" id="update-comment" name="button">Update Comment</button>
   </div>
 </template>
 
@@ -65,7 +65,7 @@ export default {
       this.showCommentsOnButton()
     },
     showDonationComponent(){
-      if(!this.commentToggle && !this.deleteToggle){
+      if(!this.commentToggle && !this.deleteToggle && !this.updateToggle){
         this.donateToggle = !this.donateToggle
         this.showCommentsOnButton()
       } else if (this.commentToggle){
@@ -76,10 +76,18 @@ export default {
         this.deleteToggle = !this.deleteToggle
         this.donateToggle = !this.donateToggle
         this.showCommentsOnButton()
+      } else if (this.updateToggle){
+        this.updateToggle = !this.updateToggle
+        this.donateToggle = !this.donateToggle
+        this.showCommentsOnButton()
       }
     },
     showDeleteCommentComponent(){
       this.deleteToggle = !this.deleteToggle
+      this.showCommentsOnButton()
+    },
+    showUpdateCommentComponent(){
+      this.updateToggle = !this.updateToggle
       this.showCommentsOnButton()
     }
   }
