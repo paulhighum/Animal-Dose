@@ -17,7 +17,7 @@
     </form>
     <div class="modal" v-if="donationSuccess">
       <div class="donation-success">
-        <span class="close">&times;</span>
+        <span @click="exitDonationComponent" class="close">&times;</span>
         <p>Thank you so much for your donation of ${{chargeObject.amount}}.00!</p>
       </div>
     </div>
@@ -67,9 +67,10 @@ export default {
         })
     },
     exitDonationComponent(){
-      this.chargeObject.amount = undefined,
-      this.complete = false,
-      this.chargeObject.token = undefined,
+      this.chargeObject.amount = undefined
+      this.complete = false
+      this.chargeObject.token = undefined
+      this.donationSuccess = false
       this.showCommentComponent()
     }
   }
