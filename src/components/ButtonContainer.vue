@@ -6,7 +6,7 @@
     <div class="dynamic-display-options">
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :updateToggle="updateToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
-      <Donation :donateToggle="donateToggle" :showCommentComponent="showCommentComponent"/>
+      <Donation :donateToggle="donateToggle" :showCommentComponent="showCommentComponent" :apiURL="apiURL"/>
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
       <UpdateComment :updateToggle="updateToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
     </div>

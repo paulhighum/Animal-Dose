@@ -1,21 +1,26 @@
 <template>
   <div id='Donation' v-if="donateToggle">
-    <form class="stripe-form" method="post">
+    <form v-if="!donationSuccess" class="stripe-form" method="post" @submit.prevent="pay">
       <p id="thanks">Thank you for considering a donation to protect and save these amazing animals.</p>
       <label>Please choose a donation amount:</label>
-      <input type="number" min="0" name="amount">
+      <input v-model="chargeObject.amount" id="amount" type="number" min="0" name="amount">
       <label>Please provide your payment details:</label>
       <card class='stripe-card'
         :class='{ complete }'
-        stripe='pk_test_XXXXXXXXXXXXXXXXXXXXXXXX'
-        :options='stripeOptions'
+        stripe='pk_test_OyBgyXyfWXrjeP5jQSgPlCDh'
         @change='complete = $event.complete'
       />
       <div class="buttons">
-        <button class='pay-with-stripe' @click='pay' :disabled='!complete'>Donate</button>
-        <button v-on:click="showCommentComponent" type="button" name="cancel">Cancel</button>
+        <input type="submit" value="Donate" class='pay-with-stripe' :disabled='!complete'></input>
+        <button v-on:click="exitDonationComponent" type="button" name="cancel">Cancel</button>
       </div>
     </form>
+    <div class="modal" v-if="donationSuccess">
+      <div class="donation-success">
+        <span class="close">&times;</span>
+        <p>Thank you so much for your donation of ${{chargeObject.amount}}.00!</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,13 +29,17 @@ import { Card, createToken } from "vue-stripe-elements"
 
 export default {
   name: "Donation",
-  props: ["donateToggle", "showCommentComponent"],
+  props: ["donateToggle", "showCommentComponent", "apiURL"],
   data() {
     return {
       complete: false,
-      stripeOptions: {
-        // see https://stripe.com/docs/stripe.js#element-options for details
-      }
+      donationSuccess: false,
+      chargeObject: {
+        token: undefined,
+        amount: undefined,
+        service: "a donation",
+      },
+      errorMessage: undefined,
     }
   },
 
@@ -38,12 +47,30 @@ export default {
 
   methods: {
     pay() {
-      // createToken returns a Promise which resolves in a result object with
-      // either a token or an error key.
-      // See https://stripe.com/docs/api#tokens for the token object.
-      // See https://stripe.com/docs/api#errors for the error object.
-      // More general https://stripe.com/docs/stripe.js#stripe-create-token.
-      createToken().then(data => console.log(data.token))
+      createToken()
+        .then(data => {
+          this.chargeObject.token = data.token.id
+          fetch(this.apiURL + "charge", {
+            method: "POST",
+            headers: new Headers({"Content-Type": "application/json"}),
+            body: JSON.stringify(this.chargeObject)
+          })
+            .then(res => res.json())
+            .then(res => {
+              if(res.charge){
+                this.donationSuccess = !this.donationSuccess
+              }
+            })
+            .catch(error => {
+              this.errorMessage = error.message
+            })
+        })
+    },
+    exitDonationComponent(){
+      this.chargeObject.amount = undefined,
+      this.complete = false,
+      this.chargeObject.token = undefined,
+      this.showCommentComponent()
     }
   }
 }
@@ -85,7 +112,8 @@ label {
 }
 
 .stripe-card.complete {
-  border-color: green;
+  border-color: rgb(80, 215, 93);
+  background-color: rgba(80, 215, 93, .2);
 }
 
 .buttons {
@@ -129,5 +157,41 @@ button:hover {
   background-color: rgb(80, 215, 93);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.donation-success {
+  background-color: rgb(254, 254, 254);
+  margin: 40% auto;
+  padding: 20px;
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 5px;
+  width: 80%;
+  font-size: 1.5rem;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>
