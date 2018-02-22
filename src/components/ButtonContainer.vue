@@ -1,7 +1,7 @@
 <template>
   <div id="ButtonContainer">
     <button v-on:click="showAddCommentComponent" type="button" name="addComment">{{ showCommentsToggle ? "Add a Comment" : "Show Comments" }}</button>
-    <button v-on:click="getFacts" type="button" id="new-fact" name="newFact">New Fact</button>
+    <button v-on:click="getFact" type="button" id="new-fact" name="newFact">New Fact</button>
     <button v-on:click="showDonationComponent" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :updateToggle="updateToggle" :currentComments="currentComments"/>
@@ -42,6 +42,10 @@ export default {
     }
   },
   methods: {
+    getFact(){
+      this.getFacts()
+      this.showCommentComponent()
+    },
     showCommentsOnButton() {
       if(!this.commentToggle && !this.donateToggle && !this.deleteToggle && !this.updateToggle){
         this.showCommentsToggle = true
