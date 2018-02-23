@@ -1,5 +1,5 @@
 describe("Random Animal Fact", function(){
-  it("Tests creates a new comment for an animal, edits it, then deletes it.", function(){
+  it("Tests CRUD functionality.", function(){
     cy.visit("http://localhost:8080/")
     cy
       .get("#AnimalCard")
@@ -7,8 +7,19 @@ describe("Random Animal Fact", function(){
       .should("have.attr", "src")
     cy.get("#ButtonContainer").find("button").eq(0).click()
     cy.get("#name").type("Amber")
-    cy.get("#new-comment").type("Helps Paul all the time.")
+    cy.get("#new-comment").type("Helps Paul all the time")
     cy.get("#submit").click()
     cy.wait(1000)
+    cy.get("#CommentContainer").find("li").last().should("have.text", "Amber: Helps Paul all the time")
+    cy.get("#update-comment").click()
+    cy.get("#UpdateComment").find("li").last().find("input").click({force: true})
+    cy.get("#update-checked").click()
+    cy.get("#new-comment").type(" and she loves this animal app.")
+    cy.get("#submit-update").click()
+    cy.wait(1000)
+    cy.get("#delete-comment").click()
+    cy.get("#DeleteComment").find("li").last().find("p").should("have.text", "Helps Paul all the time and she loves this animal app.")
+    cy.get("#DeleteComment").find("li").last().find("input").click({force: true})
+    cy.get("#delete-checked").click()
   })
 })
