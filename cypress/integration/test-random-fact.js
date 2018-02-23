@@ -1,6 +1,6 @@
 describe("Random Animal Fact", function(){
   it("Tests app grabs random fact", function(){
-    cy.visit("http://localhost:8080/")
+    cy.visit("https://daily-animal-fact.firebaseapp.com/")
     cy
       .get("#AnimalCard")
       .find("h2")
