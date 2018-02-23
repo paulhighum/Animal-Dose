@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "cypress": "^2.0.3",
     "dotenv": "^5.0.0",
     "stripe": "^5.4.0",
     "vue": "^2.5.2",
