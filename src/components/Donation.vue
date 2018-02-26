@@ -17,8 +17,8 @@
     </form>
     <div class="modal" v-if="donationSuccess">
       <div class="donation-success">
-        <span @click="exitDonationComponent" class="close">&times;</span>
-        <p>Thank you so much for your donation of ${{chargeObject.amount}}.00!</p>
+        <p id="thanks-message">Thank you so much for your donation of ${{chargeObject.amount}}.00!</p>
+        <p @click="exitDonationComponent" class="close">&times;</p>
       </div>
     </div>
   </div>
@@ -168,25 +168,34 @@ button:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
 
 .donation-success {
   background-color: rgb(254, 254, 254);
-  margin: 40% auto;
-  padding: 20px;
+  margin: 40vmin auto;
   border: 1px solid rgb(136, 136, 136);
   border-radius: 5px;
   width: 80%;
   font-size: 1.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#thanks-message {
+  padding: 2vmin;
 }
 
 .close {
     color: #aaaaaa;
-    float: right;
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: bold;
+    align-self: flex-start;
+    text-align: justify;
+    line-height: 1;
+    padding-right: 1vmin
 }
 
 .close:hover,
