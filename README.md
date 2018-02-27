@@ -31,9 +31,9 @@ npm run build
 npm run build --report
 ```
 
-Vue: For a detailed explanation on how Vue things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Vue: If you need help with Vue visit the [Vue docs](https://vuejs.org/v2/guide/). For a detailed explanation on how vue-cli works, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-Stripe: In order to use the stripe functionality of this app you will need to create a stripe account at https://stripe.com/. From there you will need to click on your dashboard and then find your publishable key and secret key, which should be located under the API menu on the lift hand side. You will then need to include these keys in the code you cloned, the secret key goes in the backend .env file you will need to make and the publishable key goes in the frontend Donation component. You can find the stripe docs [here](https://stripe.com/docs)
+Stripe: In order to use the stripe functionality of this app you will need to create a stripe account [here](https://stripe.com/). From there you will need to click on your dashboard and then find your publishable key and secret key, which should be located under the API menu on the lift hand side. You will then need to include these keys in the code you cloned, the secret key goes in the backend .env file you will need to make and the publishable key goes in the frontend Donation component. You can find the stripe docs [here](https://stripe.com/docs)
 
 
 # Technologies
