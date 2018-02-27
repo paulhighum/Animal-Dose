@@ -55,7 +55,7 @@ export default {
 
 #NewCommentForm {
   margin: 20px 0 30px 0;
-  width: 550px;
+  width: 70vmin;
 }
 
 form {
@@ -72,14 +72,14 @@ input {
   border: solid black 1px;
   border-radius: 5px;
   outline: none !important;
-  width: 550px;
+  width: 70vmin;
   font-size: 1rem;
 }
 
 textarea {
   border-radius: 5px;
   outline: none !important;
-  width: 550px;
+  width: 70vmin;
   font-size: 1rem !important;
 }
 
@@ -126,4 +126,26 @@ button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+@media screen and (max-width: 686px) {
+  #NewCommentForm {
+    width: 80vmin;
+  }
+
+  input {
+    width: 80vmin;
+  }
+
+  textarea {
+    width: 80vmin;
+  }
+
+  button {
+    width: 30vmin;
+  }
+
+  #submit {
+    width: 30vmin;
+  }
+}
 </style>

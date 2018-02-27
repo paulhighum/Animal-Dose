@@ -3,7 +3,7 @@
     <h2>{{fact.name}}</h2>
     <p id="scientific-name">{{fact.scientific_name}}</p>
     <img :src="fact.image" alt="picture of this animal" />
-    <p>{{fact.fact}}</p>
+    <p id="fact-description">{{fact.fact}}</p>
   </div>
 </template>
 
@@ -20,7 +20,10 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
   #AnimalCard {
-    max-width: 550px;
+    width: 100vw;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 
   #scientific-name {
@@ -28,8 +31,8 @@ export default {
   }
 
   img {
-    max-width: 500px;
-    max-height: 400px;
+    max-width: 70vmin;
+    max-height: 60vmin;
   }
 
   h2 {
@@ -40,5 +43,20 @@ export default {
 
   p {
     font-size: 1rem;
+    width: 70vmin;
+    text-align: center;
+  }
+  @media screen and (max-width: 686px) {
+    img {
+      max-width: 95vmin;
+      max-height: 90vmin;
+    }
+    p {
+      width: 95vmin;
+    }
+  }
+
+  #fact-description {
+    margin-top: 7px;
   }
 </style>

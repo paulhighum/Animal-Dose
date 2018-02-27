@@ -96,8 +96,8 @@ export default {
 <style scoped>
 
 ul {
-  min-height: 100px;
-  width: 540px;
+  min-height: 15vh;
+  width: 70vmin;
   border-radius: 6px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   border: 1px solid darkgrey;
@@ -108,6 +108,7 @@ ul {
 
 .for-update-styling {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
 }
 
@@ -124,7 +125,7 @@ small {
     display: flex;
     justify-content: center;
     position: relative;
-    margin-bottom: 8px;
+    margin: 0 10px 8px 0;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -217,5 +218,20 @@ button:hover {
   background-color: rgb(80, 215, 93);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 686px) {
+  ul {
+    min-height: 30vh;
+    width: 80vmin;
+  }
+
+  button {
+    width: 30vmin;
+  }
+
+  #update-checked {
+    width: 30vmin;
+  }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div id="ButtonContainer">
-    <button v-on:click="showAddCommentComponent" type="button" name="addComment">{{ showCommentsToggle ? "Add a Comment" : "Show Comments" }}</button>
-    <button v-on:click="getFact" type="button" id="new-fact" name="newFact">New Fact</button>
-    <button v-on:click="showDonationComponent" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
+    <button v-on:click="showAddCommentComponent" class="top-button" type="button" name="addComment">{{ showCommentsToggle ? "Add a Comment" : "Show Comments" }}</button>
+    <button v-on:click="getFact" type="button" id="new-fact" class="top-button" name="newFact">New Fact</button>
+    <button v-on:click="showDonationComponent" class="top-button" type="button" name="button">{{ donateToggle ? "Donate Later" : "Donate Now" }}</button>
     <div class="dynamic-display-options">
       <CommentContainer :commentToggle="commentToggle" :donateToggle="donateToggle" :deleteToggle="deleteToggle" :updateToggle="updateToggle" :currentComments="currentComments"/>
       <NewCommentForm :commentToggle="commentToggle" :apiURL="apiURL" :animalFact="fact" :getComments="getComments" :showAddCommentComponent="showAddCommentComponent"/>
@@ -10,8 +10,10 @@
       <DeleteComment :deleteToggle="deleteToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
       <UpdateComment :updateToggle="updateToggle" :currentComments="currentComments" :getComments="getComments" :apiURL="apiURL" :showCommentComponent="showCommentComponent"/>
     </div>
-    <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
-    <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showUpdateCommentComponent" type="button" id="update-comment" name="button">Update Comment</button>
+    <div class="bottom-button-div">
+      <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showDeleteCommentComponent" type="button" id="delete-comment" name="button">Delete Comment</button>
+      <button class="bottom-button" v-if="showCommentsToggle" v-on:click="showUpdateCommentComponent" type="button" id="update-comment" name="button">Update Comment</button>
+    </div>
   </div>
 </template>
 
@@ -102,6 +104,10 @@ export default {
 #ButtonContainer {
   margin: 10px 0 0 0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-flow: row wrap;
+  width: 712px;
+  justify-content: center;
 }
 
 .bottom-button {
@@ -145,8 +151,26 @@ button:hover {
   background-color: rgb(242, 229, 59);
 }
 
-#new-fact {
+@media screen and (max-width: 761px){
+  #ButtonContainer {
+    width: 70vw;
+  }
+}
 
+@media screen and (max-width: 686px) {
+  #ButtonContainer {
+    width: 100vw;
+  }
+
+  button {
+    width: 30vw;
+  }
+  .bottom-button {
+    margin-bottom: 5px;
+  }
+  .bottom-button:last-child {
+    margin-bottom: 30px;
+  }
 }
 
 </style>

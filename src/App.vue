@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
@@ -84,5 +85,11 @@ export default {
   justify-content: flex-start;
   align-items: center;
   line-height: 1.6;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+button {
+  border-style: solid;
 }
 </style>

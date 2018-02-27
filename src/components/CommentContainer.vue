@@ -33,14 +33,21 @@ export default {
 }
 
 ul {
-  min-height: 100px;
-  width: 540px;
+  min-height: 15vh;
+  width: 70vmin;
   border-radius: 6px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   border: 1px solid darkgrey;
   text-align: left;
   margin: 30px 0;
   padding: 9px;
+}
+
+@media screen and (max-width: 686px) {
+  ul {
+    height: 30vh;
+    width: 80vmin;
+  }
 }
 
 p {

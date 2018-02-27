@@ -204,4 +204,14 @@ button:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+@media screen and (max-width: 686px) {
+  button {
+    width: 30vmin;
+  }
+
+  .pay-with-stripe {
+    width: 30vmin;
+  }
+}
 </style>

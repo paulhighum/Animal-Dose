@@ -38,7 +38,7 @@ export default {
 
 .modal-content {
     background-color: rgb(254, 254, 254);
-    margin: 40% auto;
+    margin: 30vmin auto;
     padding: 20px;
     border: 1px solid rgb(136, 136, 136);
     border-radius: 5px;
@@ -59,14 +59,14 @@ input {
   border: solid black 1px;
   border-radius: 5px;
   outline: none !important;
-  width: 550px;
+  width: 70vmin;
   font-size: 1rem;
 }
 
 textarea {
   border-radius: 5px;
   outline: none !important;
-  width: 550px;
+  width: 70vmin;
   font-size: 1rem !important;
 }
 
@@ -76,7 +76,7 @@ button {
   background-color: rgb(233, 207, 114);
   border-color: rgb(233, 207, 114);
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
   outline: none !important;
   font-size: 1rem;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -104,5 +104,15 @@ button:hover {
   background-color: rgb(80, 215, 93);
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 686px) {
+  button {
+    width: 30vmin;
+  }
+
+  #submit-update {
+    width: 30vmin;
+  }
 }
 </style>
