@@ -6,13 +6,7 @@
 Welcome to the frontend of my daily animal fact app. This is a web app that displays random animals facts. Users can generate new ones, add comments, and theoretically make a donation.
 
 # User Experience
-A user opens the web app and is presented with an animal name, animal scientific name, animal image, and a fact about that animal. If there are any comments associated with that animal they will display beneath the fact. The user has the ability to add a new comment: 
-
-change a comment:  
-
-and delete comment:
-
-The user can also make a donation:
+A user opens the web app and is presented with an animal name, animal scientific name, animal image, and a fact about that animal. If there are any comments associated with that animal they will display beneath the fact. The user has the ability to add a new comment, change a comment, and delete comment. The user can also make a donation. For a demo video please click [here](https://photos.app.goo.gl/NYflVME8ItgorpVn2)
 
 
 
