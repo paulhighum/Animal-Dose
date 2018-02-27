@@ -1,6 +1,6 @@
 # daily-animal-fact-frontend
 
-<img width="865" alt="screen shot 2018-02-27 at 1 53 00 pm" src="https://user-images.githubusercontent.com/26422138/36754320-de84c3c2-1bc5-11e8-9ae8-1866541051e1.png">
+<img width="722" alt="screen shot 2018-02-27 at 2 41 05 pm" src="https://user-images.githubusercontent.com/26422138/36757194-318bc450-1bce-11e8-8654-32b542cca46a.png">
  
 # App Description
 Welcome to the frontend of my daily animal fact app.
