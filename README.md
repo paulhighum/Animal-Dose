@@ -1,8 +1,24 @@
 # daily-animal-fact-frontend
 
 <img width="865" alt="screen shot 2018-02-27 at 1 53 00 pm" src="https://user-images.githubusercontent.com/26422138/36754320-de84c3c2-1bc5-11e8-9ae8-1866541051e1.png">
+ 
+# App Description
+Welcome to the frontend of my daily animal fact app.
 
-Welcome to the frontend of my daily animal fact app. 
+# User Experience
+
+
+# Installation Instructions
+
+
+# Technologies
+
+
+# Author
+[Paul Highum](https://github.com/paulhighum)
+
+# License
+MIT
 
 ## Build Setup
 
