@@ -17,7 +17,7 @@ Fork and clone this repository.
 
 Navigate into daily-animal-fact-frontend
 
-## Build Setup
+### Build Setup
 
 ```
 # install dependencies
