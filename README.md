@@ -39,7 +39,7 @@ Stripe: In order to use the stripe functionality of this app you will need to cr
 
 
 ## Technologies
-Vue.js, JavaScript, HTML, CSS, Stripe.js
+Vue.js, JavaScript, HTML, CSS, Stripe
 
 ## Author
 [Paul Highum](https://github.com/paulhighum)
