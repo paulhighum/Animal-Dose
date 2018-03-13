@@ -1,4 +1,4 @@
-# Daily Animal Fact
+# Daily Animal Dose
 
 <img width="722" alt="screen shot 2018-02-27 at 2 41 05 pm" src="https://user-images.githubusercontent.com/26422138/36757194-318bc450-1bce-11e8-8654-32b542cca46a.png">
 
