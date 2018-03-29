@@ -46,3 +46,5 @@ Vue.js, JavaScript, HTML, CSS, Stripe
 
 ## License
 MIT
+
+![footer logo](./static/animal-dose-footer-logo.png)
