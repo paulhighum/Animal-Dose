@@ -3,7 +3,7 @@
 <img width="722" alt="screen shot 2018-02-27 at 2 41 05 pm" src="https://user-images.githubusercontent.com/26422138/36757194-318bc450-1bce-11e8-8654-32b542cca46a.png">
 
 ## App Description
-Welcome to the frontend of my daily animal fact app. This is a web app that displays random animals facts. Users can generate new ones, add comments, and theoretically make a donation.
+Welcome to Animal Dose, a Vue web app that displays random animals facts. Users can generate new facts, add comments, and make a donation.
 
 ## User Experience
 A user opens the web app and is presented with an animal name, animal scientific name, animal image, and a fact about that animal. If there are any comments associated with that animal they will display beneath the fact. The user has the ability to add a new comment, change a comment, and delete comment. The user can also make a donation. For a demo video please click [here](https://photos.app.goo.gl/NYflVME8ItgorpVn2)
