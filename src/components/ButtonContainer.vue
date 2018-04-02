@@ -103,7 +103,7 @@ export default {
 
 #ButtonContainer {
   margin: 10px 0 0 0;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-flow: row wrap;
   width: 712px;
@@ -123,6 +123,7 @@ button {
   margin: 5px;
   outline: none !important;
   font-size: .85rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {

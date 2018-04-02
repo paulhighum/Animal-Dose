@@ -56,6 +56,7 @@ export default {
 #NewCommentForm {
   margin: 20px 0 30px 0;
   width: 70vmin;
+  font-family: 'Montserrat', sans-serif;
 }
 
 form {
@@ -74,6 +75,7 @@ input {
   outline: none !important;
   width: 70vmin;
   font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 textarea {
@@ -81,6 +83,7 @@ textarea {
   outline: none !important;
   width: 70vmin;
   font-size: 1rem !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #commenters-name{
@@ -99,7 +102,7 @@ textarea {
   height: 50px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #submit:hover {
@@ -117,7 +120,7 @@ button {
   margin: 5px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {

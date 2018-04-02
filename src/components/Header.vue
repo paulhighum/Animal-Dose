@@ -10,7 +10,6 @@ export default {
 }
 </script>
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre');
 
   #Header {
     background-color: rgb(128, 188, 210);
@@ -28,13 +27,16 @@ export default {
     align-self: center;
   }
 
+  p {
+    font-family: 'Montserrat', sans-serif;
+  }
+
 
   @media screen and (min-width: 687px) {
     p {
       font-size: 1.3rem;
       align-self: flex-end;
       line-height: normal;
-      font-family: 'Averia Serif Libre', cursive;
       font-weight: 100;
       padding: 0 2vw;
     }
@@ -48,10 +50,14 @@ export default {
 
   @media screen and (max-width: 544px) {
     #Header {
-      height: 12vh;
+      height: 13vh;
       flex-flow: column;
       align-items: center;
       justify-content: center;
+    }
+
+    p {
+      padding: 1vh 0 0 0;
     }
   }
 </style>

@@ -53,6 +53,7 @@ form {
 
 label {
   margin: 10px 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 input {
@@ -61,6 +62,7 @@ input {
   outline: none !important;
   width: 70vmin;
   font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 textarea {
@@ -68,6 +70,7 @@ textarea {
   outline: none !important;
   width: 70vmin;
   font-size: 1rem !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button {
@@ -79,7 +82,7 @@ button {
   margin: 10px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
@@ -97,7 +100,7 @@ button:hover {
   margin: 5px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #submit-update:hover {

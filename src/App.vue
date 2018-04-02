@@ -79,8 +79,9 @@ export default {
 
 <style>
 
+@import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Montserrat');
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
   display: flex;
   flex-flow: column;

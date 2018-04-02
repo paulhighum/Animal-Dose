@@ -96,11 +96,12 @@ form input {
   width: 80px;
   padding: 2px;
   font-size: .85rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Helvetica Neue;
 }
 
 label {
   margin: 5px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .stripe-card {
@@ -109,7 +110,7 @@ label {
   border-radius: 5px;
   padding: 2px;
   font-size: .85rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .stripe-card.complete {
@@ -133,7 +134,7 @@ button {
   margin: 5px;
   outline: none !important;
   font-size: 1rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
@@ -150,7 +151,7 @@ button:hover {
   height: 50px;
   outline: none !important;
   font-size: 1rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: black;
 }
 
@@ -186,6 +187,7 @@ button:hover {
 
 #thanks-message {
   padding: 2vmin;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .close {

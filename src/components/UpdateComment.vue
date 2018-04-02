@@ -193,7 +193,7 @@ button {
   margin: 5px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
@@ -211,7 +211,7 @@ button:hover {
   margin: 5px;
   outline: none !important;
   font-size: 1rem;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #update-checked:hover {
