@@ -1,6 +1,6 @@
 <template>
   <div id="Footer">
-    <p>© Paul Highum</p>
+    <p>© 2018, Paul Highum</p>
     <img src="../../static/animal-dose-footer-logo.png" alt="footer logo">
   </div>
 </template>
