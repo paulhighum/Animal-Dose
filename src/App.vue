@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header />
     <AnimalCard :fact="currentFact"/>
     <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
   </div>
@@ -8,12 +9,14 @@
 <script>
 import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
+import Header from "./components/Header"
 
 export default {
   name: 'App',
   components: {
     AnimalCard,
     ButtonContainer,
+    Header,
   },
   data() {
     return {
@@ -79,7 +82,6 @@ export default {
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-top: 40px;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;

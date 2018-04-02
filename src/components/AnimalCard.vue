@@ -17,7 +17,7 @@ export default {
 }</script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Montserrat');
 
   #AnimalCard {
     width: 100vw;
@@ -39,12 +39,15 @@ export default {
     font-weight: 400;
     font-size: 2rem;
     line-height: 1;
+    font-family: 'Averia Serif Libre', cursive;
   }
 
   p {
     font-size: 1rem;
     width: 70vmin;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
   }
   @media screen and (max-width: 686px) {
     img {
