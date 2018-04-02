@@ -12,7 +12,7 @@ export default {
 <style scoped>
 
   #Header {
-    background-color: rgb(128, 188, 210);
+    /* background-color: rgb(128, 188, 210); */
     display: flex;
     flex-flow: row;
     justify-content: space-between;

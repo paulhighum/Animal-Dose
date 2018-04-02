@@ -3,6 +3,7 @@
     <Header />
     <AnimalCard :fact="currentFact"/>
     <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
+    <Footer />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
 import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 export default {
   name: 'App',
@@ -17,6 +19,7 @@ export default {
     AnimalCard,
     ButtonContainer,
     Header,
+    Footer,
   },
   data() {
     return {
