@@ -19,10 +19,12 @@ export default {
 <style scoped>
 
   #AnimalCard {
-    width: 100vw;
     display: flex;
     flex-flow: column;
     align-items: center;
+    background-color: white;
+    padding: 2vmin;
+    border-radius: 5px;
   }
 
   #scientific-name {
