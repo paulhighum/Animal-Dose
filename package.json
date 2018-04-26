@@ -12,6 +12,7 @@
   "dependencies": {
     "cypress": "^2.1.0",
     "dotenv": "^5.0.1",
+    "npm": "^6.0.0",
     "stripe": "^5.5.0",
     "vue": "^2.5.2",
     "vue-stripe-elements": "^0.2.3"
