@@ -2,7 +2,7 @@
   <div id="AnimalCard">
     <h2>{{fact.name}}</h2>
     <p id="scientific-name">{{fact.scientific_name}}</p>
-    <img :src="fact.image" alt="picture of this animal" />
+    <img :src="fact.image" alt="please wait for server load" />
     <p id="fact-description">{{fact.fact}}</p>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
   img {
     max-width: 70vmin;
     max-height: 60vmin;
+    border-radius: 5px;
   }
 
   h2 {

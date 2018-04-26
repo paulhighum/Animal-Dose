@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <AnimalCard :fact="currentFact"/>
-    <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
+    <main>
+      <AnimalCard :fact="currentFact"/>
+      <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
+    </main>
     <Footer />
   </div>
 </template>
@@ -93,6 +95,13 @@ export default {
   line-height: 1.6;
   width: 100vw;
   min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
