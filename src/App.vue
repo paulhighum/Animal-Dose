@@ -2,12 +2,12 @@
   <div id="app">
     <Header />
     <main>
-      <img src="../static/lion_outline_right_animated.svg" alt="lion outline" class="lion-anim" id="lion-left">
+      <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
       <div id="app-body">
         <AnimalCard :fact="currentFact"/>
         <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
       </div>
-      <img src="../static/lion_outline_animated.svg" alt="lion outline" class="lion-anim" id="lion-right">
+      <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
     </main>
     <Footer />
   </div>
@@ -35,10 +35,14 @@ export default {
       currentFact: {},
       currentComments: [],
       lastTenAnimals: [],
+      leftLion: "../static/lion_outline_right_animated.svg",
+      rightLion:"../static/lion_outline_animated.svg"
     }
   },
   mounted() {
     this.getFacts()
+    setTimeout(this.changeLeftLionOutlineSrc, 7000)
+    setTimeout(this.changeRightLionOutlineSrc, 7000)
   },
   methods: {
     getFacts() {
@@ -81,6 +85,12 @@ export default {
     },
     getCommentsForCurrentAnimal() {
       return this.currentComments = this.comments.filter(comment => comment.animal_id === this.currentFact.animal_id)
+    },
+    changeLeftLionOutlineSrc() {
+      this.leftLion = "../static/lion_silhouette_right.svg"
+    },
+    changeRightLionOutlineSrc() {
+      this.rightLion = "../static/lion_silhouette_left.svg"
     }
   }
 }
