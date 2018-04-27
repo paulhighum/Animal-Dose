@@ -102,7 +102,6 @@ main {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: #c7f0ff;
   width: 100vw;
   padding: 2vmin;
 }

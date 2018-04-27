@@ -12,13 +12,11 @@ export default {
 <style scoped>
 
   #Header {
-    /* background-color: rgb(128, 188, 210); */
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     width: 100vw;
-    height: 8vh;
-    margin-bottom: 4vh;
+    height: 12vh;
   }
 
   img {
@@ -29,6 +27,7 @@ export default {
 
   p {
     font-family: 'Montserrat', sans-serif;
+    padding-bottom: 2vh;
   }
 
 
@@ -38,7 +37,6 @@ export default {
       align-self: flex-end;
       line-height: normal;
       font-weight: 100;
-      padding: 0 2vw;
     }
   }
 
