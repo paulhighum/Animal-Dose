@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <main>
-      <img src="../static/lion_outline_animated.svg" alt="lion outline" class="lion-anim">
+      <img src="../static/lion_outline_right_animated.svg" alt="lion outline" class="lion-anim">
       <div id="app-body">
         <AnimalCard :fact="currentFact"/>
         <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
