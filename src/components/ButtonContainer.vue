@@ -106,7 +106,7 @@ export default {
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-flow: row wrap;
-  width: 712px;
+  width: 630px;
   justify-content: center;
 }
 

@@ -31,22 +31,27 @@ export default {
   }
 
 
-  @media screen and (min-width: 687px) {
+  @media screen and (min-width: 703px) {
     p {
       font-size: 1.3rem;
       align-self: flex-end;
       line-height: normal;
       font-weight: 100;
+      padding-right: 2vw;
     }
   }
 
-  @media screen and (max-width: 686px) {
+  @media (min-width: 605px) and (max-width: 702px) {
     p {
       font-size: 1rem;
+       align-self: flex-end;
+      line-height: normal;
+      font-weight: 100;
+      padding-right: 2vw;
     }
   }
 
-  @media screen and (max-width: 544px) {
+  @media screen and (max-width: 604px) {
     #Header {
       height: 13vh;
       flex-flow: column;

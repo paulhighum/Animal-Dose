@@ -2,12 +2,12 @@
   <div id="app">
     <Header />
     <main>
-      <img src="../static/lion_outline_right_animated.svg" alt="lion outline" class="lion-anim">
+      <img src="../static/lion_outline_right_animated.svg" alt="lion outline" class="lion-anim" id="lion-left">
       <div id="app-body">
         <AnimalCard :fact="currentFact"/>
         <ButtonContainer :getFacts="getFacts" :apiURL="apiURL" :fact="currentFact" :currentComments="currentComments" :getComments="getComments"/>
       </div>
-      <img src="../static/lion_outline_animated.svg" alt="lion outline" class="lion-anim">
+      <img src="../static/lion_outline_animated.svg" alt="lion outline" class="lion-anim" id="lion-right">
     </main>
     <Footer />
   </div>
@@ -102,14 +102,15 @@ export default {
 }
 
 main {
+  width: 100vw;
   display: flex;
-  flex-flow: row;
+  justify-content: space-around;
 }
 
 .lion-anim {
   width: 20vw;
   align-self: flex-start;
-  padding-top: 13vh;
+  padding: 13vh 0vw 0 0vw;
 }
 
 #app-body {
@@ -122,4 +123,10 @@ main {
 button {
   border-style: solid;
 }
+
+ @media screen and (max-width: 1100px) {
+    .lion-anim {
+      display: none;
+    }
+  }
 </style>
