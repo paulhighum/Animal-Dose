@@ -41,8 +41,8 @@ export default {
   },
   mounted() {
     this.getFacts()
-    setTimeout(this.changeLeftLionOutlineSrc, 7000)
-    setTimeout(this.changeRightLionOutlineSrc, 7000)
+    setTimeout(this.changeLeftLionOutlineSrc, 3150)
+    setTimeout(this.changeRightLionOutlineSrc, 3150)
   },
   methods: {
     getFacts() {
