@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <main>
+    <Loading v-if="loading" />
+    <main v-else>
       <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
       <div id="app-body">
         <AnimalCard :fact="currentFact"/>
@@ -18,6 +19,7 @@ import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Loading from "./components/Loading"
 
 export default {
   name: 'App',
@@ -26,6 +28,7 @@ export default {
     ButtonContainer,
     Header,
     Footer,
+    Loading,
   },
   data() {
     return {
@@ -36,7 +39,8 @@ export default {
       currentComments: [],
       lastTenAnimals: [],
       leftLion: "../static/lion_outline_right_animated.svg",
-      rightLion:"../static/lion_outline_animated.svg"
+      rightLion:"../static/lion_outline_animated.svg",
+      loading: true,
     }
   },
   mounted() {
