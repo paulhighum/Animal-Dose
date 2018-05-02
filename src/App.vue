@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <Header />
-    <Loading v-if="loading" />
+    <div v-if="loading" id="loading-div">
+      <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
+      <div id="loading-button-div">
+        <button @click="loading = !loading"></button>
+      </div>
+      <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
+    </div>
     <main v-else>
       <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
       <div id="app-body">
@@ -19,7 +25,6 @@ import AnimalCard from "./components/AnimalCard"
 import ButtonContainer from "./components/ButtonContainer"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import Loading from "./components/Loading"
 
 export default {
   name: 'App',
@@ -28,7 +33,6 @@ export default {
     ButtonContainer,
     Header,
     Footer,
-    Loading,
   },
   data() {
     return {
@@ -113,6 +117,10 @@ export default {
   line-height: 1.6;
   width: 100vw;
   min-height: 100vh;
+}
+
+#loading-div {
+
 }
 
 main {
