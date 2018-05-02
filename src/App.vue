@@ -120,7 +120,13 @@ export default {
 }
 
 #loading-div {
+ width: 100vw;
+ display: flex;
+ justify-content: space-around;
+}
 
+#loading-button-div {
+  width: 630px;
 }
 
 main {
