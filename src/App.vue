@@ -4,7 +4,7 @@
     <div v-if="loading" id="loading-div">
       <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
       <div id="loading-button-div">
-        <button @click="loading = !loading"></button>
+        <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn">
       </div>
       <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
     </div>
@@ -44,6 +44,7 @@ export default {
       lastTenAnimals: [],
       leftLion: "../static/lion_outline_right_animated.svg",
       rightLion:"../static/lion_outline_animated.svg",
+      buttonOutline: "",
       loading: true,
     }
   },
@@ -51,6 +52,8 @@ export default {
     this.getFacts()
     setTimeout(this.changeLeftLionOutlineSrc, 3150)
     setTimeout(this.changeRightLionOutlineSrc, 3150)
+    setTimeout(this.setEnterBtnSrc, 3300)
+    setTimeout(this.changeEnterBtnSrc, 6900)
   },
   methods: {
     getFacts() {
@@ -99,6 +102,12 @@ export default {
     },
     changeRightLionOutlineSrc() {
       this.rightLion = "../static/lion_silhouette_left.svg"
+    },
+    setEnterBtnSrc() {
+      this.buttonOutline = "../static/button_outline_animated.svg"
+    },
+    changeEnterBtnSrc() {
+      this.buttonOutline = "../static/button_silhouette.svg"
     }
   }
 }
@@ -123,10 +132,20 @@ export default {
  width: 100vw;
  display: flex;
  justify-content: space-around;
+ height: 81vh;
 }
 
 #loading-button-div {
   width: 630px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+#loading-button-div img {
+  height: 20vh;
+  cursor: pointer;
 }
 
 main {
