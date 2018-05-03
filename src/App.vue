@@ -3,9 +3,11 @@
     <Header />
     <div v-if="loading" id="loading-div">
       <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
+      <img :src=tigerOutline alt="tiger outline" id="tiger-outline">
       <div id="loading-button-div">
         <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn">
       </div>
+      <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn-small">
       <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
     </div>
     <main v-else>
@@ -44,6 +46,7 @@ export default {
       lastTenAnimals: [],
       leftLion: "../static/lion_outline_right_animated.svg",
       rightLion:"../static/lion_outline_animated.svg",
+      tigerOutline:"../static/tiger_outline_animated.svg",
       buttonOutline: "",
       loading: true,
     }
@@ -52,6 +55,7 @@ export default {
     this.getFacts()
     setTimeout(this.changeLeftLionOutlineSrc, 3150)
     setTimeout(this.changeRightLionOutlineSrc, 3150)
+    setTimeout(this.changeTigerOutlineSrc, 3250)
     setTimeout(this.setEnterBtnSrc, 3300)
     setTimeout(this.changeEnterBtnSrc, 6900)
   },
@@ -102,6 +106,9 @@ export default {
     },
     changeRightLionOutlineSrc() {
       this.rightLion = "../static/lion_silhouette_left.svg"
+    },
+    changeTigerOutlineSrc(){
+      this.tigerOutline = "../static/tiger.svg"
     },
     setEnterBtnSrc() {
       this.buttonOutline = "../static/button_outline_animated.svg"
@@ -171,9 +178,82 @@ button {
   border-style: solid;
 }
 
+@media screen and (min-width: 1100px) {
+    #tiger-outline {
+      display: none;
+    }
+
+    #enter-btn-small {
+      display: none;
+    }
+  }
+
  @media screen and (max-width: 1100px) {
+    #loading-div {
+      width: 100vw;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      height: 81vh;
+    }
+
+    #tiger-outline {
+      padding-top: 5vh;
+      padding-left: 35vw;
+      max-height: 40vh;
+    }
+
+    #enter-btn-small {
+      position: absolute;
+      left: 25vw;
+      top: 42vh;
+      max-width: 50vw;
+      max-height: 20vh;
+      cursor: pointer;
+    }
+   
     .lion-anim {
       display: none;
     }
+
+    #loading-button-div {
+      display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 745px) {
+    #tiger-outline {
+      padding-left: 28vw;
+      max-height: 40vh;
+    }
+
+  }
+
+  @media screen and (max-width: 604px) {
+    #tiger-outline {
+      padding-left: 10vw;
+      max-height: 40vh;
+      max-width: 80vw;
+    }
+
+    #enter-btn-small {
+      left: 10vw;
+      top: 60vh;
+      max-width: 80vw;
+      max-height: 20vh;
+    }
+
+  }
+
+  @media screen and (max-width: 455px) {
+  
+    #enter-btn-small {
+      left: 10vw;
+      top: 50vh;
+      max-width: 80vw;
+      max-height: 20vh;
+    }
+
   }
 </style>
