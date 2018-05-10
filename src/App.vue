@@ -5,7 +5,7 @@
       <img :src=leftLion alt="lion outline" class="lion-anim" id="lion-left">
       <img :src=tigerOutline alt="tiger outline" id="tiger-outline">
       <div id="loading-button-div">
-        <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn">
+        <img @click="loading = !loading" @mouseover="hoverEnterBtnSrc" @mouseout="changeEnterBtnSrc" :src=buttonOutline alt="" id="enter-btn">
       </div>
       <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn-small">
       <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
@@ -115,6 +115,9 @@ export default {
     },
     changeEnterBtnSrc() {
       this.buttonOutline = "../static/button_silhouette.svg"
+    },
+    hoverEnterBtnSrc() {
+      this.buttonOutline = "../static/into_the_wild.svg"
     }
   }
 }
