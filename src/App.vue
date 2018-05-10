@@ -7,7 +7,7 @@
       <div id="loading-button-div">
         <img @click="loading = !loading" @mouseover="hoverEnterBtnSrc" @mouseout="changeEnterBtnSrc" :src=buttonOutline alt="" id="enter-btn">
       </div>
-      <img @click="loading = !loading" :src=buttonOutline alt="" id="enter-btn-small">
+      <img @click="loading = !loading" @mouseover="hoverEnterBtnSrc" @mouseout="changeEnterBtnSrc" :src=buttonOutline alt="" id="enter-btn-small">
       <img :src=rightLion alt="lion outline" class="lion-anim" id="lion-right">
     </div>
     <main v-else>
